@@ -45,11 +45,17 @@
             this.button3 = new System.Windows.Forms.Button();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -110,6 +116,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button6);
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.numericUpDown3);
             this.groupBox1.Controls.Add(this.button3);
@@ -121,9 +130,9 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.numericUpDown1);
             this.groupBox1.Font = new System.Drawing.Font("Gill Sans MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(15, 60);
+            this.groupBox1.Location = new System.Drawing.Point(15, 98);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(278, 459);
+            this.groupBox1.Size = new System.Drawing.Size(444, 412);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Métodos";
@@ -162,7 +171,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(173, 50);
+            this.button1.Location = new System.Drawing.Point(211, 59);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 52);
             this.button1.TabIndex = 7;
@@ -172,15 +181,15 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(369, 89);
+            this.dataGridView1.Location = new System.Drawing.Point(874, 125);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(466, 288);
+            this.dataGridView1.Size = new System.Drawing.Size(231, 347);
             this.dataGridView1.TabIndex = 7;
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(35, 198);
+            this.button2.Location = new System.Drawing.Point(62, 151);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 71);
             this.button2.TabIndex = 10;
@@ -190,7 +199,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(87, 155);
+            this.label8.Location = new System.Drawing.Point(163, 170);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(108, 30);
             this.label8.TabIndex = 11;
@@ -199,7 +208,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Gill Sans MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(160, 198);
+            this.button3.Location = new System.Drawing.Point(277, 151);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(90, 71);
             this.button3.TabIndex = 12;
@@ -208,19 +217,61 @@
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(163, 299);
+            this.numericUpDown3.Location = new System.Drawing.Point(261, 253);
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.Size = new System.Drawing.Size(49, 32);
             this.numericUpDown3.TabIndex = 13;
+            this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 301);
+            this.label9.Location = new System.Drawing.Point(109, 255);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(144, 30);
             this.label9.TabIndex = 14;
             this.label9.Text = "Somar a todos:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(601, 125);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(231, 347);
+            this.dataGridView2.TabIndex = 8;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(330, 47);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(95, 77);
+            this.button4.TabIndex = 15;
+            this.button4.Text = "Ler arquivo";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(232, 335);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(117, 52);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "Multiplicar";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(87, 335);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(90, 52);
+            this.button6.TabIndex = 17;
+            this.button6.Text = "Somar";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -228,6 +279,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumAquamarine;
             this.ClientSize = new System.Drawing.Size(1163, 588);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
@@ -245,6 +297,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,6 +322,11 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
     }
 }
 
