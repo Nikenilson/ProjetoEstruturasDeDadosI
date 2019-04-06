@@ -59,6 +59,17 @@ namespace MatrizEsparsa
             get => primeiro == null;
         }
 
+        public void Inserir()
+        {
+
+        }
+
+        public void Remover()
+        {
+            
+        }
+
+
         public Object ExisteCelula(int linha, int coluna) //Procura e retorna uma Celula da Lista 
         {
             Celula atual = primeiro;
