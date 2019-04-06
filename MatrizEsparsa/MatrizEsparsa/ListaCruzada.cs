@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+
+///
+/// Samuel Gomes de Lima Dias - 18169
+/// Guilherme Salim de Barros - 18188
+///
 
 namespace MatrizEsparsa
 {
@@ -25,6 +31,7 @@ namespace MatrizEsparsa
             primeiro = new Celula();
             Celula atual = new Celula();
             primeiro.Abaixo = atual; 
+
             for (int i = 1; i < m + 1; i++)//Gera os nos cabeça das linhas
             {
                 atual.Abaixo = new Celula();
@@ -33,7 +40,7 @@ namespace MatrizEsparsa
                 atual.Linha = i;
                 atual = atual.Abaixo;
             }
-            atual.Abaixo = primeiro;
+            atual.Abaixo = primeiro; //Garante a circularidade da lista
 
             atual = primeiro;
             for(int i = 1; i < n + 1; i++)//Gera os nos cabeça das colunas
@@ -44,7 +51,7 @@ namespace MatrizEsparsa
                 atual.Coluna = i;
                 atual = atual.Direita;
             }
-            atual.Direita = primeiro;
+            atual.Direita = primeiro; //Garante a circularidade da lista
         }
 
         public bool EstaVazia
@@ -52,22 +59,23 @@ namespace MatrizEsparsa
             get => primeiro == null;
         }
 
-        public Object ExisteDado(int linha, int coluna)
+        public Object ExisteCelula(int linha, int coluna) //Procura e retorna uma Celula da Lista 
         {
             Celula atual = primeiro;
 
-            for (int i = 0; i < linha; i++)
+            for (int i = 0; i < linha; i++) //Posiciona atual na linha desejada
             {
-                if (atual.Linha > linha)
+                if (atual.Linha > linha)//Se a linha atual for maior que a desejada, a celula nao existe, retorna falso
                     return false;
+
                 atual = atual.Abaixo;
             }
-            for (int e = 0; e < coluna; e++)
+            while(true) //Percorre a linha ate chegar na coluna desejada 
             {
-                if (atual.Coluna == e)
+                if (atual.Coluna == coluna)
                     return atual.Valor;
 
-                if (atual.Coluna > coluna)
+                if (atual.Coluna > coluna) //Se a coluna atual for maior que a desejada, a celula nao existe, sai do while e retorna falso
                     break;
 
                 atual = atual.Direita;
@@ -77,7 +85,15 @@ namespace MatrizEsparsa
 
         public void OperacaoLinhaColuna(int n, bool linhaColuna, double k, bool operador)
         {
-            if (!(n < 1))
+            //n representa a linha/coluna desejada
+            //k e a constante a ser somada ou multiplicada
+
+            //se linhaColuna == true, a operacao deve ser aplicada a uma LINHA
+            //se nao, deve ser aplicada a uma COLUNA
+
+            //se operador == true, a operacao deve ser SOMA
+            //se nao, deve ser MULTIPLICACAO
+            if (!(n < 0))//se N e menor que 0, nada precisa ser feito, pois nao ha colunas negativas
             {
                 Celula atual = primeiro;
 
@@ -89,6 +105,7 @@ namespace MatrizEsparsa
                                 // Incluir(numero, i ,k);
 
                             atual = atual.Abaixo;
+
                         if (atual.Linha == n)
                             while (!(atual.Valor == -1))
                             {
@@ -138,7 +155,7 @@ namespace MatrizEsparsa
 ///
 ///• Criar a estrutura básica da matriz esparsa com dimensão M x N 
 ///• Retornar o valor de uma posição (l, c) da matriz 
-///• Somar a constante K a todos os elementos da coluna c da matriz 
+///• Somar a constante K a todos os elementos da coluna c da matriz (Precisa de algumas alteracoes para seguir as exigencias do "Tambem tomar cuidado com")
 ///
 /// Nossa Prioridade
 /// • Inserir um novo elemento em uma posição (l, c) da matriz

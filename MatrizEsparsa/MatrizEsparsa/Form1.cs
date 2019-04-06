@@ -8,6 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+///
+/// Samuel Gomes de Lima Dias - 18169
+/// Guilherme Salim de Barros - 18188
+///
+
 namespace MatrizEsparsa
 {
     public partial class Form1 : Form

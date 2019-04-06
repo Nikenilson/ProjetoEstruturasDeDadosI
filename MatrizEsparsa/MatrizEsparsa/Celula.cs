@@ -4,6 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+///
+/// Samuel Gomes de Lima Dias - 18169
+/// Guilherme Salim de Barros - 18188
+///
+
 namespace MatrizEsparsa
 {
     class Celula
