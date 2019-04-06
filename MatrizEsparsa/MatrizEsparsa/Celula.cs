@@ -12,6 +12,18 @@ namespace MatrizEsparsa
         int linha, coluna;
         double valor;
 
+        public Celula(Celula direita, Celula abaixo, int linha,int coluna)
+        {
+            this.direita = direita;
+            this.abaixo = abaixo;
+            this.linha = linha;
+            this.coluna = coluna;
+        }
+        public Celula()
+        {
+            Celula direita, abaixo = null;
+        }
+
         public int Linha { get => linha; set => linha = value; }
         public int Coluna { get => coluna; set => coluna = value; }
         public double Valor { get => valor; set => valor = value; }
