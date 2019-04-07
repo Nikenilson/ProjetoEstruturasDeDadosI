@@ -237,16 +237,16 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(311, 41);
+            this.button9.Location = new System.Drawing.Point(324, 49);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(129, 69);
+            this.button9.Size = new System.Drawing.Size(107, 67);
             this.button9.TabIndex = 15;
             this.button9.Text = "Ler arquivo";
             this.button9.UseVisualStyleBackColor = true;
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(162, 41);
+            this.button12.Location = new System.Drawing.Point(169, 56);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(143, 52);
             this.button12.TabIndex = 7;
