@@ -32,7 +32,7 @@ namespace MatrizEsparsa
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+    
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -53,6 +53,14 @@ namespace MatrizEsparsa
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void btnGerar_Click(object sender, EventArgs e)
+        {
+            int linhas = Convert.ToInt32(Math.Round(numericLinhas.Value, 0));
+            int colunas = Convert.ToInt32(Math.Round(numericColunas.Value, 0));
+            ListaCruzada novaMatriz = new ListaCruzada(linhas, colunas);
+           
         }
     }
 }

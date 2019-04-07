@@ -35,8 +35,8 @@ namespace MatrizEsparsa
 
         public Celula(int outraLinha, int outraColuna, double outroValor)
         {
-            if (outraColuna == 0 ||  outraLinha == 0)
-                throw new Exception("Um ou mais valores inválidos");
+            /*if (outraColuna == 0 ||  outraLinha == 0)
+                throw new Exception("Um ou mais valores inválidos");*/
 
             linha = outraLinha;
             coluna = outraColuna;
