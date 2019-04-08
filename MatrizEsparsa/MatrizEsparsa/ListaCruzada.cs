@@ -205,12 +205,12 @@ namespace MatrizEsparsa
             {
                 Celula celulaNova = new Celula(linha, coluna, valorNovo);
 
-                if (esquerda.Direita.Valor != 0)
-                    celulaNova.Direita = esquerda.Direita;
+               // if (esquerda.Direita.Valor != 0)
+                celulaNova.Direita = esquerda.Direita;
                 esquerda.Direita = celulaNova;
 
-                if (acima.Abaixo.Valor != 0)
-                    celulaNova.Abaixo = acima.Abaixo;
+              //  if (acima.Abaixo.Valor != 0)
+                celulaNova.Abaixo = acima.Abaixo;
                 acima.Abaixo = celulaNova;
 
             }

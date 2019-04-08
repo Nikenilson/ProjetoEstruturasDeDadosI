@@ -44,7 +44,7 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnLerArquivo = new System.Windows.Forms.Button();
             this.btnGerar = new System.Windows.Forms.Button();
             this.numericLinhas = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
@@ -210,7 +210,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button9);
+            this.groupBox2.Controls.Add(this.btnLerArquivo);
             this.groupBox2.Controls.Add(this.btnGerar);
             this.groupBox2.Controls.Add(this.numericLinhas);
             this.groupBox2.Controls.Add(this.label12);
@@ -224,14 +224,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Gerar Matriz";
             // 
-            // button9
+            // btnLerArquivo
             // 
-            this.button9.Location = new System.Drawing.Point(324, 49);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(107, 67);
-            this.button9.TabIndex = 15;
-            this.button9.Text = "Ler arquivo";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnLerArquivo.Location = new System.Drawing.Point(324, 49);
+            this.btnLerArquivo.Name = "btnLerArquivo";
+            this.btnLerArquivo.Size = new System.Drawing.Size(107, 67);
+            this.btnLerArquivo.TabIndex = 15;
+            this.btnLerArquivo.Text = "Ler arquivo";
+            this.btnLerArquivo.UseVisualStyleBackColor = true;
+            this.btnLerArquivo.Click += new System.EventHandler(this.btnLerArquivo_Click);
             // 
             // btnGerar
             // 
@@ -337,7 +338,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnLerArquivo;
         private System.Windows.Forms.Button btnGerar;
         private System.Windows.Forms.NumericUpDown numericLinhas;
         private System.Windows.Forms.Label label12;
