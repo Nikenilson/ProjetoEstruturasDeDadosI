@@ -15,8 +15,7 @@ namespace MatrizEsparsa
 {
     class ListaCruzada
     {
-        private Celula primeiroCabeca, atual, anterior;
-        private int quantosValores;
+        private Celula primeiroCabeca, atual, esquerda, acima;
         int linhas, colunas;
         
         public Celula PrimeiroCabeca { get => primeiroCabeca; }
@@ -24,7 +23,6 @@ namespace MatrizEsparsa
         public ListaCruzada()
         {
             primeiroCabeca = null;
-            quantosValores = 0;
         }
 
         public ListaCruzada(int m, int n)
@@ -137,7 +135,7 @@ namespace MatrizEsparsa
                 if (atual.Linha > linha)//Se a linha atual for maior que a desejada, a celula nao existe, retorna falso
                     return false;
 
-                anterior = atual;
+                acima = atual;
                 atual = atual.Abaixo;
             }
             while (true) //Percorre a linha ate chegar na coluna desejada 
@@ -148,7 +146,7 @@ namespace MatrizEsparsa
                 if (atual.Coluna > coluna) //Se a coluna atual for maior que a desejada, a celula nao existe, sai do while e retorna falso
                     break;
 
-                anterior = atual;
+                esquerda = atual;
                 atual = atual.Direita;
             }
             return false;
@@ -157,7 +155,7 @@ namespace MatrizEsparsa
 
         public double AcessarValor(int linha, int coluna)
         {
-            if (linha < 0 || coluna < 0)    // se 
+            if (linha < 0 || coluna < 0)    // se a linha ou coluna forem menor que 0, são inválidas, sendo assim se lança uma exceção
                 throw new Exception("Linha e/ou coluna inválida(s)");
 
             if (ExisteCelula(linha, coluna))
@@ -196,20 +194,29 @@ namespace MatrizEsparsa
             return false;
         }*/
 
-        public void InserirCelula(Celula celulaProcurada)
+
+      
+
+        public void InserirCelula(double valorNovo, int linha, int coluna)
         {
-            
-            if(ExisteCelula(celulaProcurada.Linha, celulaProcurada.Coluna))
-            {
-                celulaProcurada.Direita = atual.Direita;
-                celulaProcurada.Abaixo = atual.Abaixo;
-                anterior.Abaixo = celulaProcurada;
-            }
+            if(ExisteCelula(linha, coluna))
+                atual.Valor = valorNovo;
             else
             {
-                int anteriorLinha = anterior.Abaixo.Linha;
-                int anteriorColuna = anterior.Coluna;
+                Celula celulaNova = new Celula(linha, coluna, valorNovo);
+
+                if (esquerda.Direita.Valor != 0)
+                    celulaNova.Direita = esquerda.Direita;
+                esquerda.Direita = celulaNova;
+
+                if (acima.Abaixo.Valor != 0)
+                    celulaNova.Abaixo = acima.Abaixo;
+                acima.Abaixo = celulaNova;
+
             }
+
+            
+               
             
         }
 
