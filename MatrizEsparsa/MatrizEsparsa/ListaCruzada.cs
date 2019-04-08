@@ -153,6 +153,18 @@ namespace MatrizEsparsa
             return false;
         }
 
+
+        public double AcessarValor(int linha, int coluna)
+        {
+            if (linha < 0 || coluna < 0)    // se 
+                throw new Exception("Linha e/ou coluna inválida(s)");
+
+            if (ExisteCelula(linha, coluna))
+                return atual.Valor;
+
+            return 0;
+        }
+
        /* public bool ExisteCelula(Celula cell)
         {
 

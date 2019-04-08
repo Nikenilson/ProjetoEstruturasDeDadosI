@@ -19,7 +19,7 @@ namespace MatrizEsparsa
 
         public Celula(Celula outraDireita, Celula outraAbaixo, int outraLinha, int outraColuna, double outroValor)
         {
-            if (outraAbaixo == null || outraColuna == 0 || outraDireita == null || outraLinha == 0)
+            if (outraAbaixo == null || outraColuna < 0 || outraDireita == null || outraLinha < 0)
                 throw new Exception("Um ou mais valores inválidos");
 
 
