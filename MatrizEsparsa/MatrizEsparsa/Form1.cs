@@ -62,5 +62,10 @@ namespace MatrizEsparsa
             ListaCruzada novaMatriz = new ListaCruzada(linhas, colunas);
            
         }
+
+        private void btnLerArquivo_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
