@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows.Forms;
 
 ///
 /// Samuel Gomes de Lima Dias - 18169
@@ -235,6 +236,36 @@ namespace MatrizEsparsa
             }
 
         }
+        public void LerArquivo(String nomeArquivo)
+        {
+            var arquivo = new StreamReader(nomeArquivo);
+            int i = 0;
+            while(!arquivo.EndOfStream)
+            {
+                string linha = arquivo.ReadLine();
+                string[] matrizString = linha.Split(',');
+                int linhaCelula = int.Parse(matrizString[i]);
+                i++;
+                int colunaCelula = int.Parse(matrizString[i]);
+                i++;
+                double valor = double.Parse(matrizString[i]);
+                i++;
+
+                Inserir(linhaCelula, colunaCelula, valor));
+            }
+            arquivo.Close();
+        }
+
+        public void DesalocarMemoria()
+        {
+
+        }
+
+        public void Exibir(ref DataGridView a)
+        {
+
+        }
+    
 
         /*
         public void OperacaoLinhaColuna(int n, bool linhaColuna, double k, bool operador)
