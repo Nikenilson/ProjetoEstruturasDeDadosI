@@ -219,7 +219,31 @@ namespace MatrizEsparsa
             
         }
 
+        public void SomarK(int coluna, double k)
+        {
+            atual = primeiroCabeca;
+            for (int i = 0; i < coluna; i++) // percorre a lista ate a coluna desejada
+            {
+                // if (atual.Direita.Coluna > n) //Se a proxima linha for maior que a desejada, a linha nao tem nenhum no e portanto deve ser criada, 
+                // for(int e = 0; e < linhas; e++)
+                //  Incluir(e,coluna,k);
 
+                atual = atual.Direita;
+                if (atual.Coluna == coluna)
+                   while (!(atual.Valor == -1))
+                   {
+                        atual.Valor = atual.Valor + k;
+ 
+                        if (atual.Valor == 0)
+                            //Remover(atual);
+
+                        atual = atual.Abaixo;
+                   }
+            }
+
+        }
+
+        /*
         public void OperacaoLinhaColuna(int n, bool linhaColuna, double k, bool operador)
         {
             //n representa a linha/coluna desejada
@@ -283,7 +307,8 @@ namespace MatrizEsparsa
                 }
 
             }
-        }
+           }*/
+    
 
     }
 }
