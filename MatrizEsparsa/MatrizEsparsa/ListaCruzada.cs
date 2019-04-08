@@ -220,6 +220,16 @@ namespace MatrizEsparsa
             
         }
 
+        public void ExcluirCelula(int linha, int coluna)
+        {
+            if (ExisteCelula(linha, coluna))
+            {
+                acima.Abaixo = atual.Abaixo;
+                esquerda.Direita = atual.Direita;
+            }
+
+        }
+
         public void SomarK(int coluna, double k)
         {
             atual = primeiroCabeca;
