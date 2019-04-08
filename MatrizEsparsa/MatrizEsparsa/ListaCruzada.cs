@@ -197,7 +197,7 @@ namespace MatrizEsparsa
 
       
 
-        public void InserirCelula(double valorNovo, int linha, int coluna)
+        public void InserirCelula(int linha, int coluna,double valorNovo)
         {
             if(ExisteCelula(linha, coluna))
                 atual.Valor = valorNovo;
@@ -214,10 +214,6 @@ namespace MatrizEsparsa
                 acima.Abaixo = celulaNova;
 
             }
-
-            
-               
-            
         }
 
         public void SomarK(int coluna, double k)
@@ -258,14 +254,17 @@ namespace MatrizEsparsa
                 double valor = double.Parse(matrizString[i]);
                 i++;
 
-                Inserir(linhaCelula, colunaCelula, valor));
+                InserirCelula(linhaCelula, colunaCelula, valor));
             }
             arquivo.Close();
         }
 
         public void DesalocarMemoria()
         {
-
+            atual = null;
+            esquerda = null;
+            acima = null;
+            primeiroCabeca = null;
         }
 
         public void Exibir(ref DataGridView a)
