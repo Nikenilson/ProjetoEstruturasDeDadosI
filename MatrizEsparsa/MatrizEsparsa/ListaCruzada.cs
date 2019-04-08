@@ -253,10 +253,11 @@ namespace MatrizEsparsa
         {
             var arquivo = new StreamReader(nomeArquivo);
             int i = 0;
-            while(!arquivo.EndOfStream)
+            string linha = arquivo.ReadLine();
+            string[] matrizString = linha.Split(',');
+            while (!arquivo.EndOfStream)
             {
-                string linha = arquivo.ReadLine();
-                string[] matrizString = linha.Split(',');
+               
                 int linhaCelula = int.Parse(matrizString[i]);
                 i++;
                 int colunaCelula = int.Parse(matrizString[i]);
@@ -264,7 +265,7 @@ namespace MatrizEsparsa
                 double valor = double.Parse(matrizString[i]);
                 i++;
 
-                InserirCelula(linhaCelula, colunaCelula, valor));
+                InserirCelula(linhaCelula, colunaCelula, valor);
             }
             arquivo.Close();
         }

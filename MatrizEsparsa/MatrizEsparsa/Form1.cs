@@ -17,8 +17,9 @@ namespace MatrizEsparsa
 {
     public partial class Form1 : Form
     {
-      //  MatrizEsparsa matriz;
-        
+        ListaCruzada novaMatriz;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -59,13 +60,13 @@ namespace MatrizEsparsa
         {
             int linhas = Convert.ToInt32(Math.Round(numericLinhas.Value, 0));
             int colunas = Convert.ToInt32(Math.Round(numericColunas.Value, 0));
-            ListaCruzada novaMatriz = new ListaCruzada(linhas, colunas);
+            novaMatriz = new ListaCruzada(linhas, colunas);
            
         }
 
         private void btnLerArquivo_Click(object sender, EventArgs e)
         {
-            
+            novaMatriz.LerArquivo("batata.txt");
         }
     }
 }
