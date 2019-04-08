@@ -221,9 +221,9 @@ namespace MatrizEsparsa
             atual = primeiroCabeca;
             for (int i = 0; i < coluna; i++) // percorre a lista ate a coluna desejada
             {
-                // if (atual.Direita.Coluna > n) //Se a proxima linha for maior que a desejada, a linha nao tem nenhum no e portanto deve ser criada, 
-                // for(int e = 0; e < linhas; e++)
-                //  Incluir(e,coluna,k);
+                if (atual.Direita.Coluna > coluna) //Se a proxima linha for maior que a desejada, a linha nao tem nenhum no e portanto deve ser criada, 
+                    for(int e = 0; e < linhas; e++)
+                        InserirCelula(e,coluna,k);
 
                 atual = atual.Direita;
                 if (atual.Coluna == coluna)
@@ -232,7 +232,7 @@ namespace MatrizEsparsa
                         atual.Valor = atual.Valor + k;
  
                         if (atual.Valor == 0)
-                            //Remover(atual);
+                            Remover(atual);
 
                         atual = atual.Abaixo;
                    }
@@ -269,7 +269,8 @@ namespace MatrizEsparsa
 
         public void Exibir(ref DataGridView a)
         {
-
+            //a.Rows = linhas;
+            //a.Columns = colunas;
         }
     
 
@@ -343,20 +344,23 @@ namespace MatrizEsparsa
     }
 }
 ///*
-///Feito, mas nao testado
+///Feito
 ///
 ///• Criar a estrutura básica da matriz esparsa com dimensão M x N 
 ///• Retornar o valor de uma posição (l, c) da matriz 
 ///• Somar a constante K a todos os elementos da coluna c da matriz (Precisa de algumas alteracoes para seguir as exigencias do "Tambem tomar cuidado com")
+///• Inserir um novo elemento em uma posição (l, c) da matriz
+///• Remover o elemento (l,c) da matriz
 ///
+/// Feito, mas nao testado
+///• Ler um arquivo texto com as coordenadas e os valores não nulos, armazenando-os na matriz 
+///• Liberar todas as posições alocadas da matriz, incluindo sua estrutura básica
+/// 
 /// Nossa Prioridade
-/// • Inserir um novo elemento em uma posição (l, c) da matriz
-/// • Remover o elemento (l,c) da matriz 
-/// • Ler um arquivo texto com as coordenadas e os valores não nulos, armazenando-os na matriz 
-/// • Exibir a matriz na tela, em um gridView 
+///• Exibir a matriz na tela, em um gridView (Samuel vai fazer)
 ///
 /// Falta 
-/// • Liberar todas as posições alocadas da matriz, incluindo sua estrutura básica 
+///  
 /// • Somar duas matrizes esparsas, cada uma representada em uma estrutura própria e ambas exibidas em seu próprio gridView.
 ///O resultado deve gerar uma nova estrutura de matriz esparsa e exibido em um gridview próprio 
 /// • Multiplicar duas matrizes esparsas, cada uma representada em uma estrutura própria e ambas exibidas em seu próprio gridView. 
