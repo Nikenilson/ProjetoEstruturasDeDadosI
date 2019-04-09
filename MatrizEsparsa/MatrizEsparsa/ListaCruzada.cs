@@ -115,17 +115,6 @@ namespace MatrizEsparsa
             get => primeiroCabeca == null;
         }
 
-        public void Inserir()
-        {
-
-        }
-
-        public void Remover()
-        {
-            
-        }
-
-
         public bool ExisteCelula(int linha, int coluna) //Procura e retorna uma Celula da Lista 
         {
             atual = primeiroCabeca;
@@ -240,9 +229,9 @@ namespace MatrizEsparsa
                    while (!(atual.Valor == -1))
                    {
                         atual.Valor = atual.Valor + k;
- 
+
                         if (atual.Valor == 0)
-                            Remover(atual);
+                            ExcluirCelula(atual.Linha,atual.Coluna); //!!!!
 
                         atual = atual.Abaixo;
                    }
@@ -252,10 +241,16 @@ namespace MatrizEsparsa
         public void LerArquivo(String nomeArquivo)
         {
             var arquivo = new StreamReader(nomeArquivo);
-            int i = 0;
+            
+            string linhasArq = arquivo.ReadLine();
+            string colunasArq = arquivo.ReadLine();
+
+            this.linhas = int.Parse(linhasArq);
+            this.colunas = int.Parse(colunasArq);
+
             string linha = arquivo.ReadLine();
             string[] matrizString = linha.Split(',');
-            while (!arquivo.EndOfStream)
+            for(int i = 0; i < matrizString.Length; i++)
             {
                
                 int linhaCelula = int.Parse(matrizString[i]);
@@ -354,28 +349,24 @@ namespace MatrizEsparsa
 
     }
 }
-///*
 ///Feito
 ///
 ///• Criar a estrutura básica da matriz esparsa com dimensão M x N 
 ///• Retornar o valor de uma posição (l, c) da matriz 
-///• Somar a constante K a todos os elementos da coluna c da matriz (Precisa de algumas alteracoes para seguir as exigencias do "Tambem tomar cuidado com")
 ///• Inserir um novo elemento em uma posição (l, c) da matriz
 ///• Remover o elemento (l,c) da matriz
+///• Somar a constante K a todos os elementos da coluna c da matriz 
+///• Liberar todas as posições alocadas da matriz, incluindo sua estrutura básica
 ///
 /// Feito, mas nao testado
 ///• Ler um arquivo texto com as coordenadas e os valores não nulos, armazenando-os na matriz 
-///• Liberar todas as posições alocadas da matriz, incluindo sua estrutura básica
-/// 
-/// Nossa Prioridade
-///• Exibir a matriz na tela, em um gridView (Samuel vai fazer)
 ///
 /// Falta 
-///  
+/// • Exibir a matriz na tela, em um gridView (Samuel vai fazer)
 /// • Somar duas matrizes esparsas, cada uma representada em uma estrutura própria e ambas exibidas em seu próprio gridView.
-///O resultado deve gerar uma nova estrutura de matriz esparsa e exibido em um gridview próprio 
+///O resultado deve gerar uma nova estrutura de matriz esparsa e exibido em um gridview próprio (Samuel)
 /// • Multiplicar duas matrizes esparsas, cada uma representada em uma estrutura própria e ambas exibidas em seu próprio gridView. 
-///O resultado deve gerar uma nova estrutura de matriz esparsa e exibido em um gridview próprio 
+///O resultado deve gerar uma nova estrutura de matriz esparsa e exibido em um gridview próprio  (Salim)
 ///
 ///Tambem tomar cuidado com 
 ///
