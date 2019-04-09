@@ -275,8 +275,17 @@ namespace MatrizEsparsa
 
         public void Exibir(ref DataGridView a)
         {
-            //a.Rows = linhas;
-            //a.Columns = colunas;
+            for (int i = 0; i < this.linhas; i++)
+                a.Columns.Add(i.ToString(), i.ToString());
+
+            string[] linha = new string[colunas];
+            for (int i = 0; i < linhas; i++)
+            {
+                for (int e = 0; e < colunas; e++)
+                    linha[e] = AcessarValor(i, e).ToString();
+                a.Rows.Add(linha[i]);
+            }
+
         }
     
 

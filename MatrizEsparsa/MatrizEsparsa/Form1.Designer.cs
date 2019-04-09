@@ -67,7 +67,7 @@
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Location = new System.Drawing.Point(353, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(279, 31);
+            this.label1.Size = new System.Drawing.Size(222, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "ᗰᗩƬᖇI乙 ᕮᔕᑭᗩᖇᔕᗩ";
             // 
@@ -78,7 +78,7 @@
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Location = new System.Drawing.Point(5, -7);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(808, 55);
+            this.label2.Size = new System.Drawing.Size(588, 55);
             this.label2.TabIndex = 1;
             this.label2.Text = "◤◢◤◢◣◥◣ ◢◤◢◣◥◣◥◤◢◤◢◣◥◣◥";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -90,7 +90,7 @@
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label3.Location = new System.Drawing.Point(-9, 548);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(822, 55);
+            this.label3.Size = new System.Drawing.Size(602, 55);
             this.label3.TabIndex = 2;
             this.label3.Text = "◣◥◣◥◤◢◤ ◥◣◥◤◢◤ ◢◣◥◣◥◤◢◤◢";
             // 
@@ -101,7 +101,7 @@
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label5.Location = new System.Drawing.Point(580, 548);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(822, 55);
+            this.label5.Size = new System.Drawing.Size(602, 55);
             this.label5.TabIndex = 4;
             this.label5.Text = "◣◥◣◥◤◢◤ ◥◣◥◤◢◤ ◢◣◥◣◥◤◢◤◢";
             // 
@@ -283,7 +283,7 @@
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label4.Location = new System.Drawing.Point(223, -7);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(808, 55);
+            this.label4.Size = new System.Drawing.Size(588, 55);
             this.label4.TabIndex = 3;
             this.label4.Text = "◤◢◤◢◣◥◣ ◢◤◢◣◥◣◥◤◢◤◢◣◥◣◥";
             // 
@@ -304,7 +304,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
-            this.Text = "Operações com Matrizes Esparças";
+            this.Text = "S";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
