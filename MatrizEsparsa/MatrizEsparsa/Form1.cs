@@ -66,7 +66,40 @@ namespace MatrizEsparsa
 
         private void btnLerArquivo_Click(object sender, EventArgs e)
         {
-            novaMatriz.LerArquivo("batata.txt");
+            openFileDialog1.ShowDialog();
+            novaMatriz.LerArquivo(openFileDialog1.FileName);
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            int linhas = Convert.ToInt32(Math.Round(num1.Value, 0));
+            int colunas = Convert.ToInt32(Math.Round(num2.Value, 0));
+
+            valor.Visible = true;
+            valor.Text = novaMatriz.AcessarValor(linhas,colunas) + "";
+            
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int linhas = Convert.ToInt32(Math.Round(num1.Value, 0));
+            int colunas = Convert.ToInt32(Math.Round(num2.Value, 0));
+
+            valor.Text ="0";
+            novaMatriz.ExcluirCelula(linhas, colunas);
+        }
+
+        private void btnSomar_Click(object sender, EventArgs e)
+        {
+            int colunas = Convert.ToInt32(Math.Round(num4.Value, 0));
+            
+            novaMatriz.SomarK(colunas, Convert.ToDouble(num3.Value));
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+           // novaMatriz.SomarMatrizes(novaMatriz, lista1);
         }
     }
 }

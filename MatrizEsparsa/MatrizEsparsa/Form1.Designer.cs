@@ -36,9 +36,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.button3 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
+            this.valor = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -52,14 +51,25 @@
             this.numericColunas = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.btnSomar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.num1 = new System.Windows.Forms.NumericUpDown();
+            this.num2 = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
+            this.num4 = new System.Windows.Forms.NumericUpDown();
+            this.num3 = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericLinhas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericColunas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -67,7 +77,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(353, 48);
+            this.label1.Location = new System.Drawing.Point(371, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(222, 31);
             this.label1.TabIndex = 0;
@@ -109,33 +119,43 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.num3);
+            this.groupBox1.Controls.Add(this.num4);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.num2);
+            this.groupBox1.Controls.Add(this.num1);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.btnSomar);
             this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.numericUpDown3);
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.valor);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(15, 253);
+            this.groupBox1.Location = new System.Drawing.Point(12, 232);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(450, 257);
+            this.groupBox1.Size = new System.Drawing.Size(450, 313);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operações";
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(11, 181);
+            this.button6.Enabled = false;
+            this.button6.Location = new System.Drawing.Point(6, 255);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(179, 52);
             this.button6.TabIndex = 17;
             this.button6.Text = "Somar Matrizes";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(212, 181);
+            this.button5.Enabled = false;
+            this.button5.Location = new System.Drawing.Point(225, 255);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(219, 52);
             this.button5.TabIndex = 16;
@@ -145,64 +165,59 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 121);
+            this.label9.Location = new System.Drawing.Point(6, 175);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(157, 25);
+            this.label9.Size = new System.Drawing.Size(180, 25);
             this.label9.TabIndex = 14;
-            this.label9.Text = "Somar a todos:";
+            this.label9.Text = "Somar na coluna:";
             this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(169, 121);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(49, 31);
-            this.numericUpDown3.TabIndex = 13;
-            this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(294, 40);
+            this.button3.Location = new System.Drawing.Point(153, 76);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(150, 58);
+            this.button3.Size = new System.Drawing.Size(150, 31);
             this.button3.TabIndex = 12;
             this.button3.Text = "Remover valor";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label8
+            // valor
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(152, 56);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(114, 25);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "Valorzinho";
+            this.valor.AutoSize = true;
+            this.valor.Location = new System.Drawing.Point(335, 61);
+            this.valor.Name = "valor";
+            this.valor.Size = new System.Drawing.Size(62, 25);
+            this.valor.TabIndex = 11;
+            this.valor.Text = "Valor";
+            this.valor.Visible = false;
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(11, 40);
+            this.button2.Location = new System.Drawing.Point(153, 39);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(121, 58);
+            this.button2.Size = new System.Drawing.Size(150, 31);
             this.button2.TabIndex = 10;
-            this.button2.Text = "Pegar valor";
+            this.button2.Text = "Acessar valor";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(764, 113);
+            this.dataGridView1.Location = new System.Drawing.Point(731, 73);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(231, 397);
+            this.dataGridView1.Size = new System.Drawing.Size(231, 416);
             this.dataGridView1.TabIndex = 7;
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(500, 113);
+            this.dataGridView2.Location = new System.Drawing.Point(483, 73);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(231, 397);
+            this.dataGridView2.Size = new System.Drawing.Size(231, 416);
             this.dataGridView2.TabIndex = 8;
             // 
             // openFileDialog1
@@ -219,7 +234,7 @@
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.numericColunas);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(15, 94);
+            this.groupBox2.Location = new System.Drawing.Point(12, 73);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(450, 153);
             this.groupBox2.TabIndex = 18;
@@ -292,17 +307,82 @@
             // dataGridView3
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(1031, 113);
+            this.dataGridView3.Location = new System.Drawing.Point(977, 73);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(231, 397);
+            this.dataGridView3.Size = new System.Drawing.Size(231, 416);
             this.dataGridView3.TabIndex = 19;
+            // 
+            // btnSomar
+            // 
+            this.btnSomar.Location = new System.Drawing.Point(268, 173);
+            this.btnSomar.Name = "btnSomar";
+            this.btnSomar.Size = new System.Drawing.Size(114, 31);
+            this.btnSomar.TabIndex = 18;
+            this.btnSomar.Text = "Somar";
+            this.btnSomar.UseVisualStyleBackColor = true;
+            this.btnSomar.Click += new System.EventHandler(this.btnSomar_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 212);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 25);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Coluna:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 76);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(71, 25);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Linha:";
+            // 
+            // num1
+            // 
+            this.num1.Location = new System.Drawing.Point(98, 37);
+            this.num1.Name = "num1";
+            this.num1.Size = new System.Drawing.Size(49, 31);
+            this.num1.TabIndex = 16;
+            // 
+            // num2
+            // 
+            this.num2.Location = new System.Drawing.Point(98, 74);
+            this.num2.Name = "num2";
+            this.num2.Size = new System.Drawing.Size(49, 31);
+            this.num2.TabIndex = 16;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 41);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 25);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Coluna:";
+            // 
+            // num4
+            // 
+            this.num4.Location = new System.Drawing.Point(192, 210);
+            this.num4.Name = "num4";
+            this.num4.Size = new System.Drawing.Size(49, 31);
+            this.num4.TabIndex = 20;
+            // 
+            // num3
+            // 
+            this.num3.Location = new System.Drawing.Point(192, 173);
+            this.num3.Name = "num3";
+            this.num3.Size = new System.Drawing.Size(49, 31);
+            this.num3.TabIndex = 21;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.ClientSize = new System.Drawing.Size(1338, 541);
+            this.ClientSize = new System.Drawing.Size(1338, 576);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView2);
@@ -319,7 +399,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -327,6 +406,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericLinhas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericColunas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,9 +424,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label valor;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
@@ -358,6 +440,14 @@
         private System.Windows.Forms.NumericUpDown numericColunas;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnSomar;
+        private System.Windows.Forms.NumericUpDown num2;
+        private System.Windows.Forms.NumericUpDown num1;
+        private System.Windows.Forms.NumericUpDown num4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown num3;
     }
 }
 
