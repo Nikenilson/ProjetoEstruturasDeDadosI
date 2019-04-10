@@ -51,6 +51,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.numericColunas = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -58,6 +59,7 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericLinhas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericColunas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -117,14 +119,14 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(15, 253);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(450, 233);
+            this.groupBox1.Size = new System.Drawing.Size(450, 257);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operações";
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(11, 158);
+            this.button6.Location = new System.Drawing.Point(11, 181);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(179, 52);
             this.button6.TabIndex = 17;
@@ -133,7 +135,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(196, 158);
+            this.button5.Location = new System.Drawing.Point(212, 181);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(219, 52);
             this.button5.TabIndex = 16;
@@ -190,7 +192,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(752, 113);
+            this.dataGridView1.Location = new System.Drawing.Point(764, 113);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(231, 397);
             this.dataGridView1.TabIndex = 7;
@@ -281,18 +283,27 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(223, -7);
+            this.label4.Location = new System.Drawing.Point(514, -7);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(588, 55);
             this.label4.TabIndex = 3;
             this.label4.Text = "◤◢◤◢◣◥◣ ◢◤◢◣◥◣◥◤◢◤◢◣◥◣◥";
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(1031, 113);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(231, 397);
+            this.dataGridView3.TabIndex = 19;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.ClientSize = new System.Drawing.Size(1027, 541);
+            this.ClientSize = new System.Drawing.Size(1338, 541);
+            this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
@@ -315,6 +326,7 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericLinhas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericColunas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,6 +357,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numericColunas;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dataGridView3;
     }
 }
 
