@@ -58,8 +58,8 @@ namespace MatrizEsparsa
 
         private void btnGerar_Click(object sender, EventArgs e)
         {
-            int linhas = Convert.ToInt32(Math.Round(numericLinhas.Value, 0));
-            int colunas = Convert.ToInt32(Math.Round(numericColunas.Value, 0));
+            int linhas = Convert.ToInt32(Math.Round(nLinhas.Value, 0));
+            int colunas = Convert.ToInt32(Math.Round(nColunas.Value, 0));
             novaMatriz = new ListaCruzada(linhas, colunas);
            
         }
@@ -72,8 +72,8 @@ namespace MatrizEsparsa
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            int linhas = Convert.ToInt32(Math.Round(num1.Value, 0));
-            int colunas = Convert.ToInt32(Math.Round(num2.Value, 0));
+            int linhas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
+            int colunas = Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0));
 
             valor.Visible = true;
             valor.Text = novaMatriz.AcessarValor(linhas,colunas) + "";
@@ -83,8 +83,8 @@ namespace MatrizEsparsa
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int linhas = Convert.ToInt32(Math.Round(num1.Value, 0));
-            int colunas = Convert.ToInt32(Math.Round(num2.Value, 0));
+            int linhas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
+            int colunas = Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0));
 
             valor.Text ="0";
             novaMatriz.ExcluirCelula(linhas, colunas);
