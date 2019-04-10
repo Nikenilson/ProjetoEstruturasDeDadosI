@@ -340,75 +340,21 @@ namespace MatrizEsparsa
 
             return listaResultado;
         }
-    
 
-        /*
-        public void OperacaoLinhaColuna(int n, bool linhaColuna, double k, bool operador)
+        public ListaCruzada SomarMatrizes(ListaCruzada lista1, ListaCruzada lista2)
         {
-            //n representa a linha/coluna desejada
-            //k e a constante a ser somada ou multiplicada
+            if (lista1.linhas != lista2.linhas || lista1.colunas != lista2.colunas)
+                throw new Exception("O número de colunas da primeira matriz é diferente do de linhas da segunda!");
 
-            //se linhaColuna == true, a operacao deve ser aplicada a uma LINHA
-            //se nao, deve ser aplicada a uma COLUNA
+            ListaCruzada ret = new ListaCruzada();
 
-            //se operador == true, a operacao deve ser SOMA
-            //se nao, deve ser MULTIPLICACAO
-            if (!(n < 0))//se N e menor que 0, nada precisa ser feito, pois nao ha colunas negativas
-            {
-                atual = primeiroCabeca;
-
-                if (linhaColuna) //Se true, a operacao deve ser aplicada uma linha
-                {
-                    for (int i = 0; i < n; i++) // percorre a lista ate a linha desejada
-                    {
-                       // if (atual.Abaixo.Linha > n) //Se a proxima linha for maior que a desejada, a linha nao tem nenhum no e portanto deve ser criada, 
-                                // Incluir(numero, i ,k);
-
-                            atual = atual.Abaixo;
-
-                        if (atual.Linha == n)
-                            while (!(atual.Valor == -1))
-                            {
-                                if(operador)//Se verdadeiro,Soma
-                                    atual.Valor = atual.Valor + k;
-                                else//se nao multiplica
-                                    atual.Valor = atual.Valor * k;
-
-                                if (atual.Valor == 0)
-                                    //Remover(atual);
-
-                                atual = atual.Direita;
-                            }
-                    }
-                }
-                else //Deve ser aplicada em uma coluna
-                {
-                    for (int i = 0; i < n; i++) // percorre a lista ate a linha desejada
-                    {
-                        // if (atual.Direita.Coluna > n) //Se a proxima linha for maior que a desejada, a linha nao tem nenhum no e portanto deve ser criada, 
-                        // Incluir(numero, i ,k);
-
-                        atual = atual.Direita;
-                        if (atual.Coluna == n)
-                            while (!(atual.Valor == -1))
-                            {
-                                if (operador)//Se verdadeiro,Soma
-                                    atual.Valor = atual.Valor + k;
-                                else//se nao multiplica
-                                    atual.Valor = atual.Valor * k;
-
-                                if (atual.Valor == 0)
-                                    //Remover(atual);
-
-                                    atual = atual.Abaixo;
-                            }
-                    }
-                }
-
-            }
-           }*/
-    
-
+            for (int i = 0; i < lista1.linhas; i++)
+                for (int e = 0; e < lista1.colunas; e++)
+                    ret.InserirCelula(i, e, lista1.AcessarValor(i, e) + lista2.AcessarValor(i, e));
+  
+            return ret;
+        }
+ 
     }
 }
 ///Feito
@@ -419,16 +365,17 @@ namespace MatrizEsparsa
 ///• Remover o elemento (l,c) da matriz
 ///• Somar a constante K a todos os elementos da coluna c da matriz 
 ///• Liberar todas as posições alocadas da matriz, incluindo sua estrutura básica
-///
-/// Feito, mas nao testado
 ///• Ler um arquivo texto com as coordenadas e os valores não nulos, armazenando-os na matriz 
-///
-/// Falta 
-/// • Exibir a matriz na tela, em um gridView (Samuel vai fazer)
-/// • Somar duas matrizes esparsas, cada uma representada em uma estrutura própria e ambas exibidas em seu próprio gridView.
-///O resultado deve gerar uma nova estrutura de matriz esparsa e exibido em um gridview próprio (Samuel)
+/// • Exibir a matriz na tela, em um gridView
 /// • Multiplicar duas matrizes esparsas, cada uma representada em uma estrutura própria e ambas exibidas em seu próprio gridView. 
-///O resultado deve gerar uma nova estrutura de matriz esparsa e exibido em um gridview próprio  (Salim)
+///O resultado deve gerar uma nova estrutura de matriz esparsa e exibido em um gridview próprio
+///• Somar duas matrizes esparsas, cada uma representada em uma estrutura própria e ambas exibidas em seu próprio gridView.
+///O resultado deve gerar uma nova estrutura de matriz esparsa e exibido em um gridview próprio
+/// Feito, mas nao testado
+/// 
+/// Falta 
+/// 
+/// 
 ///
 ///Tambem tomar cuidado com 
 ///
