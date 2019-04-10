@@ -301,28 +301,38 @@ namespace MatrizEsparsa
 
         }
 
-
+        
         public ListaCruzada MultiplicarMatrizes(ListaCruzada lista1, ListaCruzada lista2)
         {
-            if (lista1.colunas != lista2.linhas)
+            if (lista1.colunas != lista2.linhas) // caso o número de colunas da primeira matriz seja diferente do de linhas da segunda, 
+                                                 // não será possível realizar a operação e uma exeção será lançada.
                 throw new Exception("O número de colunas da primeira matriz é diferente do de linhas da segunda!");
 
             ListaCruzada listaResultado = new ListaCruzada();
-            for(int iLinha1 = 0; iLinha1 < lista1.linhas; iLinha1++)
+            for(int iLinha1 = 0; iLinha1 < lista1.linhas; iLinha1++) // enquanto a vaiável "iLinha", a qual representa a linha atual da 1ª matriz,
+                                                                    // for menor que a quantidade de linhas dessa matriz
             {
-                double result = 0;
-                int iColuna2 = iLinha1;
                 
+                int iColuna2 = iLinha1;  // a variável "iColuna2" representa a coluna atual da 2ª matriz, sempre se igualando a "iLinha" quando ela muda
                 
-                 for (int iLinha2 = 0; iLinha2 < lista2.linhas; iLinha2++)
-                 {
-                    for (int iColuna1 = 0; iColuna1 < lista1.colunas; iColuna1++)
+
+                for (int iLinha2 = 0; iLinha2 < lista2.linhas; iLinha2++)// enquanto a vaiável "iLinha2", a qual representa a linha atual da 2ª matriz,
+                                                         // for menor que a quantidade de linhas dessa matriz
+                {
+                    double resultado = 0;  // declaração da variável local do tipo  double "resultado", recebendo 0;
+
+                    for (int iColuna1 = 0; iColuna1 < lista1.colunas; iColuna1++) // enquanto a vaiável "iColuna", a qual representa a coluna atual da 1ª matriz,
+                                                                                  // for menor que a quantidade de colunas dessa matriz
                     {
-                   
-                        result += lista1.AcessarValor(iLinha1, iColuna1) * lista2.AcessarValor(iLinha2, iColuna2);
+                        // resultado somará a ele mesmo o resultado da multiplicação do valor da célula da 1ª matriz de linha e coluna
+                        // iguais a suas variáveis correspondentes ("iLinha1" e "iColuna1") com a célula da segunda matriz de linha e coluna correspondentes
+                        // às vaiáveis "iLinha2" e "iColuna2"
+                        resultado += lista1.AcessarValor(iLinha1, iColuna1) * lista2.AcessarValor(iLinha2, iColuna2);
                     
                     }
-                    listaResultado.InserirCelula(iLinha1, iColuna2, result);
+                    // quando todas as colunas, da linha atual da primeira matriz, multiplicarem as células de todas as linhas da primeira coluna,
+                    // resultado inserirá uma nova célula com valor igual a resultado
+                    listaResultado.InserirCelula(iLinha1, iColuna2, resultado);
                 }
                 
 
