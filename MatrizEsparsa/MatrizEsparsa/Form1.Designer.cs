@@ -30,32 +30,34 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbOperacoes2 = new System.Windows.Forms.GroupBox();
+            this.nkMatriz2 = new System.Windows.Forms.NumericUpDown();
+            this.lblColuna2 = new System.Windows.Forms.Label();
+            this.nLinhaMatriz2 = new System.Windows.Forms.NumericUpDown();
+            this.nColunaMatriz2 = new System.Windows.Forms.NumericUpDown();
+            this.lblLinha2 = new System.Windows.Forms.Label();
+            this.btnSomarK = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.valor = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvMatriz2 = new System.Windows.Forms.DataGridView();
+            this.dgvMatriz1 = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.gBGerarMatriz = new System.Windows.Forms.GroupBox();
+            this.lMatriz2 = new System.Windows.Forms.Button();
+            this.lMatriz1 = new System.Windows.Forms.Button();
+            this.btnLerArquivoMatriz2 = new System.Windows.Forms.Button();
             this.btnLerArquivoMatriz1 = new System.Windows.Forms.Button();
+            this.btnGerarMatriz2 = new System.Windows.Forms.Button();
             this.btnGerarMatriz1 = new System.Windows.Forms.Button();
             this.nLinhas = new System.Windows.Forms.NumericUpDown();
             this.lblLinhas1 = new System.Windows.Forms.Label();
             this.lblColunas1 = new System.Windows.Forms.Label();
             this.nColunas = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.btnSomarK = new System.Windows.Forms.Button();
-            this.lblLinha2 = new System.Windows.Forms.Label();
-            this.nColunaMatriz2 = new System.Windows.Forms.NumericUpDown();
-            this.nLinhaMatriz2 = new System.Windows.Forms.NumericUpDown();
-            this.lblColuna2 = new System.Windows.Forms.Label();
-            this.num3 = new System.Windows.Forms.NumericUpDown();
+            this.dgvMatriz3 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnLerArquivoMatriz2 = new System.Windows.Forms.Button();
-            this.GerarMatriz2 = new System.Windows.Forms.Button();
             this.gbOperacoes1 = new System.Windows.Forms.GroupBox();
             this.nkMatriz1 = new System.Windows.Forms.NumericUpDown();
             this.lblColuna1 = new System.Windows.Forms.Label();
@@ -69,18 +71,16 @@
             this.btnRemoverValorMatriz1 = new System.Windows.Forms.Button();
             this.lblValorMatriz1 = new System.Windows.Forms.Label();
             this.btnAcessarValorMatriz1 = new System.Windows.Forms.Button();
-            this.lMatriz1 = new System.Windows.Forms.Button();
-            this.lMatriz2 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.gbOperacoes2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nkMatriz2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nLinhaMatriz2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nColunaMatriz2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatriz2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatriz1)).BeginInit();
             this.gBGerarMatriz.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nLinhas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nColunas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nColunaMatriz2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nLinhaMatriz2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatriz3)).BeginInit();
             this.gbOperacoes1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nkMatriz1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nLinha)).BeginInit();
@@ -94,7 +94,7 @@
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Location = new System.Drawing.Point(5, -21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(588, 55);
+            this.label2.Size = new System.Drawing.Size(808, 55);
             this.label2.TabIndex = 1;
             this.label2.Text = "◤◢◤◢◣◥◣ ◢◤◢◣◥◣◥◤◢◤◢◣◥◣◥";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -107,29 +107,79 @@
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label5.Location = new System.Drawing.Point(579, 535);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(602, 55);
+            this.label5.Size = new System.Drawing.Size(822, 55);
             this.label5.TabIndex = 4;
             this.label5.Text = "◣◥◣◥◤◢◤ ◥◣◥◤◢◤ ◢◣◥◣◥◤◢◤◢";
             // 
-            // groupBox1
+            // gbOperacoes2
             // 
-            this.groupBox1.Controls.Add(this.num3);
-            this.groupBox1.Controls.Add(this.lblColuna2);
-            this.groupBox1.Controls.Add(this.nLinhaMatriz2);
-            this.groupBox1.Controls.Add(this.nColunaMatriz2);
-            this.groupBox1.Controls.Add(this.lblLinha2);
-            this.groupBox1.Controls.Add(this.btnSomarK);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.valor);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 380);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(450, 142);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Operações da Matriz 2";
+            this.gbOperacoes2.Controls.Add(this.nkMatriz2);
+            this.gbOperacoes2.Controls.Add(this.lblColuna2);
+            this.gbOperacoes2.Controls.Add(this.nLinhaMatriz2);
+            this.gbOperacoes2.Controls.Add(this.nColunaMatriz2);
+            this.gbOperacoes2.Controls.Add(this.lblLinha2);
+            this.gbOperacoes2.Controls.Add(this.btnSomarK);
+            this.gbOperacoes2.Controls.Add(this.label9);
+            this.gbOperacoes2.Controls.Add(this.button3);
+            this.gbOperacoes2.Controls.Add(this.valor);
+            this.gbOperacoes2.Controls.Add(this.button2);
+            this.gbOperacoes2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbOperacoes2.Location = new System.Drawing.Point(12, 380);
+            this.gbOperacoes2.Name = "gbOperacoes2";
+            this.gbOperacoes2.Size = new System.Drawing.Size(450, 142);
+            this.gbOperacoes2.TabIndex = 6;
+            this.gbOperacoes2.TabStop = false;
+            this.gbOperacoes2.Text = "Operações da Matriz 2";
+            this.gbOperacoes2.Visible = false;
+            // 
+            // nkMatriz2
+            // 
+            this.nkMatriz2.Location = new System.Drawing.Point(39, 103);
+            this.nkMatriz2.Name = "nkMatriz2";
+            this.nkMatriz2.Size = new System.Drawing.Size(49, 31);
+            this.nkMatriz2.TabIndex = 21;
+            // 
+            // lblColuna2
+            // 
+            this.lblColuna2.AutoSize = true;
+            this.lblColuna2.Location = new System.Drawing.Point(6, 27);
+            this.lblColuna2.Name = "lblColuna2";
+            this.lblColuna2.Size = new System.Drawing.Size(86, 25);
+            this.lblColuna2.TabIndex = 19;
+            this.lblColuna2.Text = "Coluna:";
+            // 
+            // nLinhaMatriz2
+            // 
+            this.nLinhaMatriz2.Location = new System.Drawing.Point(98, 65);
+            this.nLinhaMatriz2.Name = "nLinhaMatriz2";
+            this.nLinhaMatriz2.Size = new System.Drawing.Size(49, 31);
+            this.nLinhaMatriz2.TabIndex = 16;
+            // 
+            // nColunaMatriz2
+            // 
+            this.nColunaMatriz2.Location = new System.Drawing.Point(98, 25);
+            this.nColunaMatriz2.Name = "nColunaMatriz2";
+            this.nColunaMatriz2.Size = new System.Drawing.Size(49, 31);
+            this.nColunaMatriz2.TabIndex = 16;
+            // 
+            // lblLinha2
+            // 
+            this.lblLinha2.AutoSize = true;
+            this.lblLinha2.Location = new System.Drawing.Point(7, 67);
+            this.lblLinha2.Name = "lblLinha2";
+            this.lblLinha2.Size = new System.Drawing.Size(71, 25);
+            this.lblLinha2.TabIndex = 16;
+            this.lblLinha2.Text = "Linha:";
+            // 
+            // btnSomarK
+            // 
+            this.btnSomarK.Location = new System.Drawing.Point(93, 99);
+            this.btnSomarK.Name = "btnSomarK";
+            this.btnSomarK.Size = new System.Drawing.Size(114, 36);
+            this.btnSomarK.TabIndex = 18;
+            this.btnSomarK.Text = "Somar k";
+            this.btnSomarK.UseVisualStyleBackColor = true;
+            this.btnSomarK.Click += new System.EventHandler(this.btnSomar_Click);
             // 
             // label9
             // 
@@ -173,21 +223,21 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
-            // dataGridView1
+            // dgvMatriz2
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(705, 37);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(231, 485);
-            this.dataGridView1.TabIndex = 7;
+            this.dgvMatriz2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMatriz2.Location = new System.Drawing.Point(705, 37);
+            this.dgvMatriz2.Name = "dgvMatriz2";
+            this.dgvMatriz2.Size = new System.Drawing.Size(231, 485);
+            this.dgvMatriz2.TabIndex = 7;
             // 
-            // dataGridView2
+            // dgvMatriz1
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(468, 37);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(231, 485);
-            this.dataGridView2.TabIndex = 8;
+            this.dgvMatriz1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMatriz1.Location = new System.Drawing.Point(468, 37);
+            this.dgvMatriz1.Name = "dgvMatriz1";
+            this.dgvMatriz1.Size = new System.Drawing.Size(231, 485);
+            this.dgvMatriz1.TabIndex = 8;
             // 
             // openFileDialog1
             // 
@@ -200,7 +250,7 @@
             this.gBGerarMatriz.Controls.Add(this.lMatriz1);
             this.gBGerarMatriz.Controls.Add(this.btnLerArquivoMatriz2);
             this.gBGerarMatriz.Controls.Add(this.btnLerArquivoMatriz1);
-            this.gBGerarMatriz.Controls.Add(this.GerarMatriz2);
+            this.gBGerarMatriz.Controls.Add(this.btnGerarMatriz2);
             this.gBGerarMatriz.Controls.Add(this.btnGerarMatriz1);
             this.gBGerarMatriz.Controls.Add(this.nLinhas);
             this.gBGerarMatriz.Controls.Add(this.lblLinhas1);
@@ -214,6 +264,38 @@
             this.gBGerarMatriz.TabStop = false;
             this.gBGerarMatriz.Text = "Gerar Matriz ";
             // 
+            // lMatriz2
+            // 
+            this.lMatriz2.Location = new System.Drawing.Point(328, 67);
+            this.lMatriz2.Name = "lMatriz2";
+            this.lMatriz2.Size = new System.Drawing.Size(116, 41);
+            this.lMatriz2.TabIndex = 17;
+            this.lMatriz2.Text = "Liberar 2";
+            this.lMatriz2.UseVisualStyleBackColor = true;
+            this.lMatriz2.Visible = false;
+            this.lMatriz2.Click += new System.EventHandler(this.lMatriz2_Click);
+            // 
+            // lMatriz1
+            // 
+            this.lMatriz1.Location = new System.Drawing.Point(328, 19);
+            this.lMatriz1.Name = "lMatriz1";
+            this.lMatriz1.Size = new System.Drawing.Size(116, 42);
+            this.lMatriz1.TabIndex = 16;
+            this.lMatriz1.Text = "Liberar 1";
+            this.lMatriz1.UseVisualStyleBackColor = true;
+            this.lMatriz1.Visible = false;
+            this.lMatriz1.Click += new System.EventHandler(this.lMatriz1_Click);
+            // 
+            // btnLerArquivoMatriz2
+            // 
+            this.btnLerArquivoMatriz2.Location = new System.Drawing.Point(222, 116);
+            this.btnLerArquivoMatriz2.Name = "btnLerArquivoMatriz2";
+            this.btnLerArquivoMatriz2.Size = new System.Drawing.Size(222, 39);
+            this.btnLerArquivoMatriz2.TabIndex = 15;
+            this.btnLerArquivoMatriz2.Text = "Ler Arquivo Matriz 2";
+            this.btnLerArquivoMatriz2.UseVisualStyleBackColor = true;
+            this.btnLerArquivoMatriz2.Click += new System.EventHandler(this.btnLerArquivoMatriz2_Click);
+            // 
             // btnLerArquivoMatriz1
             // 
             this.btnLerArquivoMatriz1.Location = new System.Drawing.Point(3, 116);
@@ -223,6 +305,16 @@
             this.btnLerArquivoMatriz1.Text = "Ler Arquivo Matriz 1";
             this.btnLerArquivoMatriz1.UseVisualStyleBackColor = true;
             this.btnLerArquivoMatriz1.Click += new System.EventHandler(this.btnLerArquivo_Click);
+            // 
+            // btnGerarMatriz2
+            // 
+            this.btnGerarMatriz2.Location = new System.Drawing.Point(164, 68);
+            this.btnGerarMatriz2.Name = "btnGerarMatriz2";
+            this.btnGerarMatriz2.Size = new System.Drawing.Size(158, 42);
+            this.btnGerarMatriz2.TabIndex = 7;
+            this.btnGerarMatriz2.Text = "Gerar Matriz 2";
+            this.btnGerarMatriz2.UseVisualStyleBackColor = true;
+            this.btnGerarMatriz2.Click += new System.EventHandler(this.btnGerarMatriz2_Click);
             // 
             // btnGerarMatriz1
             // 
@@ -273,66 +365,17 @@
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label4.Location = new System.Drawing.Point(514, -21);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(588, 55);
+            this.label4.Size = new System.Drawing.Size(808, 55);
             this.label4.TabIndex = 3;
             this.label4.Text = "◤◢◤◢◣◥◣ ◢◤◢◣◥◣◥◤◢◤◢◣◥◣◥";
             // 
-            // dataGridView3
+            // dgvMatriz3
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(942, 37);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(231, 485);
-            this.dataGridView3.TabIndex = 19;
-            // 
-            // btnSomarK
-            // 
-            this.btnSomarK.Location = new System.Drawing.Point(93, 99);
-            this.btnSomarK.Name = "btnSomarK";
-            this.btnSomarK.Size = new System.Drawing.Size(114, 36);
-            this.btnSomarK.TabIndex = 18;
-            this.btnSomarK.Text = "Somar k";
-            this.btnSomarK.UseVisualStyleBackColor = true;
-            this.btnSomarK.Click += new System.EventHandler(this.btnSomar_Click);
-            // 
-            // lblLinha2
-            // 
-            this.lblLinha2.AutoSize = true;
-            this.lblLinha2.Location = new System.Drawing.Point(7, 67);
-            this.lblLinha2.Name = "lblLinha2";
-            this.lblLinha2.Size = new System.Drawing.Size(71, 25);
-            this.lblLinha2.TabIndex = 16;
-            this.lblLinha2.Text = "Linha:";
-            // 
-            // nColunaMatriz2
-            // 
-            this.nColunaMatriz2.Location = new System.Drawing.Point(98, 25);
-            this.nColunaMatriz2.Name = "nColunaMatriz2";
-            this.nColunaMatriz2.Size = new System.Drawing.Size(49, 31);
-            this.nColunaMatriz2.TabIndex = 16;
-            // 
-            // nLinhaMatriz2
-            // 
-            this.nLinhaMatriz2.Location = new System.Drawing.Point(98, 65);
-            this.nLinhaMatriz2.Name = "nLinhaMatriz2";
-            this.nLinhaMatriz2.Size = new System.Drawing.Size(49, 31);
-            this.nLinhaMatriz2.TabIndex = 16;
-            // 
-            // lblColuna2
-            // 
-            this.lblColuna2.AutoSize = true;
-            this.lblColuna2.Location = new System.Drawing.Point(6, 27);
-            this.lblColuna2.Name = "lblColuna2";
-            this.lblColuna2.Size = new System.Drawing.Size(86, 25);
-            this.lblColuna2.TabIndex = 19;
-            this.lblColuna2.Text = "Coluna:";
-            // 
-            // num3
-            // 
-            this.num3.Location = new System.Drawing.Point(39, 103);
-            this.num3.Name = "num3";
-            this.num3.Size = new System.Drawing.Size(49, 31);
-            this.num3.TabIndex = 21;
+            this.dgvMatriz3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMatriz3.Location = new System.Drawing.Point(942, 37);
+            this.dgvMatriz3.Name = "dgvMatriz3";
+            this.dgvMatriz3.Size = new System.Drawing.Size(231, 485);
+            this.dgvMatriz3.TabIndex = 19;
             // 
             // label3
             // 
@@ -342,27 +385,9 @@
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label3.Location = new System.Drawing.Point(2, 535);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(602, 55);
+            this.label3.Size = new System.Drawing.Size(822, 55);
             this.label3.TabIndex = 2;
             this.label3.Text = "◣◥◣◥◤◢◤ ◥◣◥◤◢◤ ◢◣◥◣◥◤◢◤◢";
-            // 
-            // btnLerArquivoMatriz2
-            // 
-            this.btnLerArquivoMatriz2.Location = new System.Drawing.Point(222, 116);
-            this.btnLerArquivoMatriz2.Name = "btnLerArquivoMatriz2";
-            this.btnLerArquivoMatriz2.Size = new System.Drawing.Size(222, 39);
-            this.btnLerArquivoMatriz2.TabIndex = 15;
-            this.btnLerArquivoMatriz2.Text = "Ler Arquivo Matriz 2";
-            this.btnLerArquivoMatriz2.UseVisualStyleBackColor = true;
-            // 
-            // GerarMatriz2
-            // 
-            this.GerarMatriz2.Location = new System.Drawing.Point(164, 68);
-            this.GerarMatriz2.Name = "GerarMatriz2";
-            this.GerarMatriz2.Size = new System.Drawing.Size(158, 42);
-            this.GerarMatriz2.TabIndex = 7;
-            this.GerarMatriz2.Text = "Gerar Matriz 2";
-            this.GerarMatriz2.UseVisualStyleBackColor = true;
             // 
             // gbOperacoes1
             // 
@@ -385,6 +410,7 @@
             this.gbOperacoes1.TabIndex = 22;
             this.gbOperacoes1.TabStop = false;
             this.gbOperacoes1.Text = "Operações da Matriz 1";
+            this.gbOperacoes1.Visible = false;
             // 
             // nkMatriz1
             // 
@@ -433,6 +459,7 @@
             this.btnSomarKMatriz1.TabIndex = 18;
             this.btnSomarKMatriz1.Text = "Somar k";
             this.btnSomarKMatriz1.UseVisualStyleBackColor = true;
+            this.btnSomarKMatriz1.Click += new System.EventHandler(this.btnSomarKMatriz1_Click);
             // 
             // btnSomarMatrizes
             // 
@@ -443,6 +470,7 @@
             this.btnSomarMatrizes.TabIndex = 17;
             this.btnSomarMatrizes.Text = "Somar Matrizes";
             this.btnSomarMatrizes.UseVisualStyleBackColor = true;
+            this.btnSomarMatrizes.Click += new System.EventHandler(this.btnSomarMatrizes_Click);
             // 
             // btnMultiplicarMatrizes
             // 
@@ -453,6 +481,7 @@
             this.btnMultiplicarMatrizes.TabIndex = 16;
             this.btnMultiplicarMatrizes.Text = "Multiplicar Matrizes";
             this.btnMultiplicarMatrizes.UseVisualStyleBackColor = true;
+            this.btnMultiplicarMatrizes.Click += new System.EventHandler(this.btnMultiplicarMatrizes_Click);
             // 
             // lblk
             // 
@@ -472,6 +501,7 @@
             this.btnRemoverValorMatriz1.TabIndex = 12;
             this.btnRemoverValorMatriz1.Text = "Remover Valor";
             this.btnRemoverValorMatriz1.UseVisualStyleBackColor = true;
+            this.btnRemoverValorMatriz1.Click += new System.EventHandler(this.btnRemoverValorMatriz1_Click);
             // 
             // lblValorMatriz1
             // 
@@ -486,30 +516,13 @@
             // btnAcessarValorMatriz1
             // 
             this.btnAcessarValorMatriz1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAcessarValorMatriz1.Location = new System.Drawing.Point(153, 21);
+            this.btnAcessarValorMatriz1.Location = new System.Drawing.Point(153, 20);
             this.btnAcessarValorMatriz1.Name = "btnAcessarValorMatriz1";
             this.btnAcessarValorMatriz1.Size = new System.Drawing.Size(150, 40);
             this.btnAcessarValorMatriz1.TabIndex = 10;
             this.btnAcessarValorMatriz1.Text = "Acessar Valor";
             this.btnAcessarValorMatriz1.UseVisualStyleBackColor = true;
-            // 
-            // lMatriz1
-            // 
-            this.lMatriz1.Location = new System.Drawing.Point(328, 19);
-            this.lMatriz1.Name = "lMatriz1";
-            this.lMatriz1.Size = new System.Drawing.Size(116, 42);
-            this.lMatriz1.TabIndex = 16;
-            this.lMatriz1.Text = "Liberar 1";
-            this.lMatriz1.UseVisualStyleBackColor = true;
-            // 
-            // lMatriz2
-            // 
-            this.lMatriz2.Location = new System.Drawing.Point(328, 67);
-            this.lMatriz2.Name = "lMatriz2";
-            this.lMatriz2.Size = new System.Drawing.Size(116, 41);
-            this.lMatriz2.TabIndex = 17;
-            this.lMatriz2.Text = "Liberar 2";
-            this.lMatriz2.UseVisualStyleBackColor = true;
+            this.btnAcessarValorMatriz1.Click += new System.EventHandler(this.btnAcessarValorMatriz1_Click);
             // 
             // Form1
             // 
@@ -518,11 +531,11 @@
             this.BackColor = System.Drawing.Color.MediumAquamarine;
             this.ClientSize = new System.Drawing.Size(1193, 572);
             this.Controls.Add(this.gbOperacoes1);
-            this.Controls.Add(this.dataGridView3);
+            this.Controls.Add(this.dgvMatriz3);
             this.Controls.Add(this.gBGerarMatriz);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.dgvMatriz1);
+            this.Controls.Add(this.dgvMatriz2);
+            this.Controls.Add(this.gbOperacoes2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -531,18 +544,18 @@
             this.Name = "Form1";
             this.Text = "Matrizes Esparsas";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.gbOperacoes2.ResumeLayout(false);
+            this.gbOperacoes2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nkMatriz2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nLinhaMatriz2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nColunaMatriz2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatriz2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatriz1)).EndInit();
             this.gBGerarMatriz.ResumeLayout(false);
             this.gBGerarMatriz.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nLinhas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nColunas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nColunaMatriz2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nLinhaMatriz2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMatriz3)).EndInit();
             this.gbOperacoes1.ResumeLayout(false);
             this.gbOperacoes1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nkMatriz1)).EndInit();
@@ -556,13 +569,13 @@
         #endregion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox gbOperacoes2;
+        private System.Windows.Forms.DataGridView dgvMatriz2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label valor;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvMatriz1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.GroupBox gBGerarMatriz;
         private System.Windows.Forms.Button btnLerArquivoMatriz1;
@@ -572,16 +585,16 @@
         private System.Windows.Forms.Label lblColunas1;
         private System.Windows.Forms.NumericUpDown nColunas;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dgvMatriz3;
         private System.Windows.Forms.Label lblLinha2;
         private System.Windows.Forms.Button btnSomarK;
         private System.Windows.Forms.NumericUpDown nLinhaMatriz2;
         private System.Windows.Forms.NumericUpDown nColunaMatriz2;
         private System.Windows.Forms.Label lblColuna2;
-        private System.Windows.Forms.NumericUpDown num3;
+        private System.Windows.Forms.NumericUpDown nkMatriz2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnLerArquivoMatriz2;
-        private System.Windows.Forms.Button GerarMatriz2;
+        private System.Windows.Forms.Button btnGerarMatriz2;
         private System.Windows.Forms.GroupBox gbOperacoes1;
         private System.Windows.Forms.NumericUpDown nkMatriz1;
         private System.Windows.Forms.Label lblColuna1;
