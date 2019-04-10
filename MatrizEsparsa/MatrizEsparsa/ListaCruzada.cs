@@ -303,18 +303,25 @@ namespace MatrizEsparsa
                 throw new Exception("O número de colunas da primeira matriz é diferente do de linhas da segunda!");
 
             ListaCruzada listaResultado = new ListaCruzada();
-            for(int iLinha = 0; iLinha < lista1.linhas; iLinha++)
+            for(int iLinha1 = 0; iLinha1 < lista1.linhas; iLinha1++)
             {
                 double result = 0;
-                int iColuna;
-                for (iColuna= 0; iColuna < colunas; iColuna++)
-                {
-                   result += AcessarValor(iLinha, iColuna) * AcessarValor(iColuna, iLinha);
+                int iColuna2 = iLinha1;
+                
+                
+                 for (int iLinha2 = 0; iLinha2 < lista2.linhas; iLinha2++)
+                 {
+                    for (int iColuna1 = 0; iColuna1 < lista1.colunas; iColuna1++)
+                    {
+                   
+                        result += lista1.AcessarValor(iLinha1, iColuna1) * lista2.AcessarValor(iLinha2, iColuna2);
+                    
+                    }
+                    listaResultado.InserirCelula(iLinha1, iColuna2, result);
                 }
-                listaResultado.InserirCelula(iLinha, iColuna, result);
+                
+
             }
-
-
 
             return listaResultado;
         }
