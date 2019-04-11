@@ -26,34 +26,93 @@ namespace MatrizEsparsa
             InitializeComponent();
         }
 
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void btnGerar_Click(object sender, EventArgs e)
+        //----------------------------------------------------------------------------------------------------------------------------------
+        //Matriz 1
+        //----------------------------------------------------------------------------------------------------------------------------------
+        private void btnGerar_Click(object sender, EventArgs e) //Gera a Matriz 1 por meio do "teclado"
         {
             int linhas = Convert.ToInt32(Math.Round(nLinhas.Value, 0));
             int colunas = Convert.ToInt32(Math.Round(nColunas.Value, 0));
             matriz1 = new ListaCruzada(linhas, colunas);
+            dgvMatriz1.RowCount = linhas;
+            dgvMatriz1.ColumnCount = colunas;
+            foreach (DataGridViewRow row in dgvMatriz1.Rows)
+                foreach (DataGridViewCell cell in row.Cells)
+                    cell.Value = 0;
 
+            //Altera a visibilidade de outros elementos 
             btnGerarMatriz1.Visible = false;
             lMatriz1.Visible = true;
             gbOperacoes1.Visible = true;
-            matriz1.Exibir(ref dgvMatriz1);
         }
-
-        private void btnLerArquivo_Click(object sender, EventArgs e)
+        private void btnLerArquivo_Click(object sender, EventArgs e) //Gera a Matriz 1 por meio da leitura de um arquivo
         {
             openFileDialog1.ShowDialog();
             matriz1 = new ListaCruzada();
             matriz1.LerArquivo(openFileDialog1.FileName);
+            matriz1.Exibir(ref dgvMatriz1);
 
+            //Altera a visibilidade de outros elementos 
             btnLerArquivoMatriz1.Visible = false;
             btnGerarMatriz1.Visible = false;
-            matriz1.Exibir(ref dgvMatriz1);
         }
+        private void lMatriz1_Click(object sender, EventArgs e) //Desaloca a memoria da matriz 1
+        {
+            matriz1.DesalocarMemoria();
+            foreach (DataGridViewRow row in dgvMatriz1.Rows)
+                foreach (DataGridViewCell cell in row.Cells)
+                    cell.Value = 0;
+
+            //Altera a visibilidade de outros elementos
+            btnLerArquivoMatriz1.Visible = true;
+            btnGerarMatriz1.Visible = true;
+            gbOperacoes1.Visible = false;
+            lMatriz1.Visible = false;
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------
+        //Matriz 2
+        //----------------------------------------------------------------------------------------------------------------------------------
+        private void btnGerarMatriz2_Click(object sender, EventArgs e) //Gera a matriz 2 por meio do "teclado"
+        {
+            int linhas = Convert.ToInt32(Math.Round(nLinhas.Value, 0));
+            int colunas = Convert.ToInt32(Math.Round(nColunas.Value, 0));
+            matriz2 = new ListaCruzada(linhas, colunas);
+            matriz2.Exibir(ref dgvMatriz2);
+
+            //Altera a visibilidade de outros elementos 
+            lMatriz2.Visible = true;
+            gbOperacoes2.Visible = true;
+            btnGerarMatriz2.Visible = false;
+        }
+        private void btnLerArquivoMatriz2_Click(object sender, EventArgs e) //Gera a matriz 2 por meio da leitura de um arquivo
+        {
+            openFileDialog1.ShowDialog();
+            matriz2 = new ListaCruzada();
+            matriz2.LerArquivo(openFileDialog1.FileName);
+            matriz2.Exibir(ref dgvMatriz2);
+
+            //Altera a visibilidade de outros elementos 
+            btnLerArquivoMatriz2.Visible = false;
+            btnGerarMatriz2.Visible = false;
+        }
+        private void lMatriz2_Click(object sender, EventArgs e) //Desaloca a memoria da matriz 1
+        {
+            matriz2.DesalocarMemoria();
+            foreach (DataGridViewRow row in dgvMatriz2.Rows)
+                foreach (DataGridViewCell cell in row.Cells)
+                    cell.Value = 0;
+
+            //Altera a visibilidade de outros elementos 
+            btnLerArquivoMatriz2.Visible = true;
+            btnGerarMatriz2.Visible = true;
+            gbOperacoes2.Visible = false;
+            lMatriz2.Visible = false;
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------
+        //MatrizResultado
+        //----------------------------------------------------------------------------------------------------------------------------------
 
         private void button2_Click_1(object sender, EventArgs e)
         {
@@ -81,79 +140,16 @@ namespace MatrizEsparsa
             matriz2.Exibir(ref dgvMatriz2);
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-        }
+        
 
-        private void btnGerarMatriz2_Click(object sender, EventArgs e)
-        {
-            int linhas = Convert.ToInt32(Math.Round(nLinhas.Value, 0));
-            int colunas = Convert.ToInt32(Math.Round(nColunas.Value, 0));
-            matriz2 = new ListaCruzada(linhas, colunas);
+        
 
-            lMatriz2.Visible = true;
-            gbOperacoes2.Visible = true;
-            btnGerarMatriz2.Visible = false;
-            matriz2.Exibir(ref dgvMatriz2);
-        }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
+        
 
-        }
+        
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void lMatriz1_Click(object sender, EventArgs e)
-        {
-            matriz1.DesalocarMemoria();
-            btnLerArquivoMatriz1.Visible = true;
-            btnGerarMatriz1.Visible = true;
-            gbOperacoes1.Visible = false;
-            lMatriz1.Visible = false;
-
-            matriz1.Exibir(ref dgvMatriz1);
-        }
-
-        private void lMatriz2_Click(object sender, EventArgs e)
-        {
-            matriz2.DesalocarMemoria();
-            btnLerArquivoMatriz2.Visible = true;
-            btnGerarMatriz2.Visible = true;
-            gbOperacoes2.Visible = false;
-            lMatriz2.Visible = false;
-
-            matriz2.Exibir(ref dgvMatriz2);
-        }
-
-        private void btnLerArquivoMatriz2_Click(object sender, EventArgs e)
-        {
-            openFileDialog1.ShowDialog();
-            matriz2 = new ListaCruzada();
-            matriz2.LerArquivo(openFileDialog1.FileName);
-
-            btnLerArquivoMatriz2.Visible = false;
-            btnGerarMatriz2.Visible = false;
-            matriz2.Exibir(ref dgvMatriz2);
-        }
+        
 
         private void btnAcessarValorMatriz1_Click(object sender, EventArgs e)
         {
@@ -192,6 +188,38 @@ namespace MatrizEsparsa
         {
             matrizResultado = matriz1.MultiplicarMatrizes(matriz1, matriz2);
             matrizResultado.Exibir(ref dgvMatriz3);
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

@@ -27,8 +27,6 @@ namespace MatrizEsparsa
 
         public ListaCruzada(int m, int n)
         {
-
-
             linhas = m;
             colunas = n;
 
@@ -36,8 +34,8 @@ namespace MatrizEsparsa
             Celula percorre = primeiroCabeca; // ponteiro usado para percorrer, inicia no primeiro valor da matriz
 
             Celula proximaLinha;   // representa a célula da proxima linha, após a variável "percorre"
-
-            for (int i = 0; i < linhas; i++)
+        
+            for (int i = 1; i < linhas; i++)
             {
                 proximaLinha = new Celula(i, -1, 0); // "proximaLinha" é (re)instanciada como uma nova célula com a linha correspondente ao índice,
                                                      // coluna -1 e valor 0 (já que não existe valor específico a ser inserido)
@@ -60,7 +58,7 @@ namespace MatrizEsparsa
 
             Celula proximaColuna;   // representa a célula da proxima coluna, após a variável "percorre"
 
-            for (int i = 0; i < colunas; i++)
+            for (int i = 1; i < colunas; i++)
             {
                 proximaColuna = new Celula(i, -1, 0); // "proximaLinha" é (re)instanciada como uma nova célula com a linha correspondente ao índice,
                                                       // coluna -1 e valor 0 (já que não existe valor específico a ser inserido)
@@ -110,35 +108,46 @@ namespace MatrizEsparsa
             atual.Direita = primeiro; //Garante a circularidade da lista*/
         }
 
-        public bool EstaVazia
+        public bool EstaVazia()
         {
-            get => primeiroCabeca == null;
+            Celula percorre = primeiroCabeca;
+            while (percorre.Abaixo == percorre)
+            {
+                percorre = percorre.Direita;
+                if (percorre.Equals(primeiroCabeca))
+                    while (percorre.Direita == percorre)
+                    {
+                        percorre = percorre.Abaixo;
+                        if (percorre.Equals(primeiroCabeca))
+                            return true; ;
+                    }
+            }
+            return false;
         }
 
 
         public bool ExisteCelula(int linha, int coluna) //Procura e retorna uma Celula da Lista 
         {
-            atual = primeiroCabeca;
-
-            for (int i = 0; i < linha; i++) //Posiciona atual na linha desejada
+            if (!EstaVazia())
             {
-                if (atual.Linha > linha)//Se a linha atual for maior que a desejada, a celula nao existe, retorna falso
-                    return false;
+                atual = primeiroCabeca;
+                for (int i = 0; i < linha; i++) //Posiciona atual na linha desejada
+                {
+                    if (atual.Linha > linha)//Se a linha atual for maior que a desejada, a celula nao existe, retorna falso
+                        return false;
 
-                acima = atual;
-                atual = atual.Abaixo;
-            }
-            while (true) //Percorre a linha ate chegar na coluna desejada 
-            {
-                if (atual.Coluna == coluna)
-                    return true;
+                    acima = atual;
+                    atual = atual.Abaixo;
+                }
+                while (atual.Coluna <= coluna) //Percorre a linha ate chegar na coluna desejada 
+                {
+                    if (atual.Coluna == coluna)
+                        return true;
 
-                if (atual.Coluna > coluna) //Se a coluna atual for maior que a desejada, a celula nao existe, sai do while e retorna falso
-                    break;
-
-                esquerda = atual;
-                acima = acima.Direita;
-                atual = atual.Direita;
+                    esquerda = atual;
+                    acima = acima.Direita;
+                    atual = atual.Direita;
+                }
             }
             return false;
         }

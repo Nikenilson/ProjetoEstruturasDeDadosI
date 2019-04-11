@@ -154,6 +154,11 @@
             this.nLinhaMatriz2.Name = "nLinhaMatriz2";
             this.nLinhaMatriz2.Size = new System.Drawing.Size(49, 31);
             this.nLinhaMatriz2.TabIndex = 16;
+            this.nLinhaMatriz2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // nColunaMatriz2
             // 
@@ -161,6 +166,11 @@
             this.nColunaMatriz2.Name = "nColunaMatriz2";
             this.nColunaMatriz2.Size = new System.Drawing.Size(49, 31);
             this.nColunaMatriz2.TabIndex = 16;
+            this.nColunaMatriz2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // lblLinha2
             // 
@@ -332,6 +342,11 @@
             this.nLinhas.Name = "nLinhas";
             this.nLinhas.Size = new System.Drawing.Size(49, 31);
             this.nLinhas.TabIndex = 9;
+            this.nLinhas.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // lblLinhas1
             // 
@@ -357,6 +372,11 @@
             this.nColunas.Name = "nColunas";
             this.nColunas.Size = new System.Drawing.Size(49, 31);
             this.nColunas.TabIndex = 7;
+            this.nColunas.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label4
             // 
@@ -416,7 +436,7 @@
             // 
             this.nkMatriz1.Location = new System.Drawing.Point(39, 105);
             this.nkMatriz1.Name = "nkMatriz1";
-            this.nkMatriz1.Size = new System.Drawing.Size(49, 31);
+            this.nkMatriz1.Size = new System.Drawing.Size(39, 31);
             this.nkMatriz1.TabIndex = 21;
             // 
             // lblColuna1
@@ -434,6 +454,11 @@
             this.nLinha.Name = "nLinha";
             this.nLinha.Size = new System.Drawing.Size(49, 31);
             this.nLinha.TabIndex = 16;
+            this.nLinha.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // nColuna
             // 
@@ -441,6 +466,11 @@
             this.nColuna.Name = "nColuna";
             this.nColuna.Size = new System.Drawing.Size(49, 31);
             this.nColuna.TabIndex = 16;
+            this.nColuna.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // lblLinha1
             // 
@@ -453,7 +483,7 @@
             // 
             // btnSomarKMatriz1
             // 
-            this.btnSomarKMatriz1.Location = new System.Drawing.Point(93, 101);
+            this.btnSomarKMatriz1.Location = new System.Drawing.Point(84, 100);
             this.btnSomarKMatriz1.Name = "btnSomarKMatriz1";
             this.btnSomarKMatriz1.Size = new System.Drawing.Size(114, 38);
             this.btnSomarKMatriz1.TabIndex = 18;
@@ -506,7 +536,7 @@
             // lblValorMatriz1
             // 
             this.lblValorMatriz1.AutoSize = true;
-            this.lblValorMatriz1.Location = new System.Drawing.Point(337, 49);
+            this.lblValorMatriz1.Location = new System.Drawing.Point(323, 68);
             this.lblValorMatriz1.Name = "lblValorMatriz1";
             this.lblValorMatriz1.Size = new System.Drawing.Size(62, 25);
             this.lblValorMatriz1.TabIndex = 11;

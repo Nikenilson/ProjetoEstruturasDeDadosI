@@ -22,28 +22,22 @@ namespace MatrizEsparsa
             if (outraAbaixo == null || outraColuna < 0 || outraDireita == null || outraLinha < 0)
                 throw new Exception("Um ou mais valores inválidos");
 
+            this.direita = outraDireita;
+            this.abaixo = outraAbaixo;
+            this.linha = outraLinha;
+            this.coluna = outraColuna;
+            this.valor = outroValor;
 
-            direita = outraDireita;
-            abaixo = outraAbaixo;
-            linha = outraLinha;
-            coluna = outraColuna;
-            valor = outroValor;
-
-
-            // O Chico não gosta que coloque this, né?
         }
 
         public Celula(int outraLinha, int outraColuna, double outroValor)
         {
-            /*if (outraColuna == 0 ||  outraLinha == 0)
-                throw new Exception("Um ou mais valores inválidos");*/
+            if (outraColuna == 0 ||  outraLinha == 0)
+                throw new Exception("Linha ou Coluna inválida(as)");
 
-            linha = outraLinha;
-            coluna = outraColuna;
-            valor = outroValor;
-
-
-            // O Chico não gosta que coloque this, né?
+            this.linha = outraLinha;
+            this.coluna = outraColuna;
+            this.valor = outroValor;
         }
 
         public Celula()
