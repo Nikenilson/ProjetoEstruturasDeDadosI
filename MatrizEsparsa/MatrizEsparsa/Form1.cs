@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 ///
@@ -45,6 +39,7 @@ namespace MatrizEsparsa
             lMatriz1.Visible = true;
             gbOperacoes1.Visible = true;
         }
+
         private void btnLerArquivo_Click(object sender, EventArgs e) //Gera a Matriz 1 por meio da leitura de um arquivo
         {
             openFileDialog1.ShowDialog();
@@ -56,6 +51,34 @@ namespace MatrizEsparsa
             btnLerArquivoMatriz1.Visible = false;
             btnGerarMatriz1.Visible = false;
         }
+
+        private void btnAcessarValorMatriz1_Click(object sender, EventArgs e)
+        {
+            int linhas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
+            int colunas = Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0));
+
+            valor.Visible = true;
+            valor.Text = matriz1.AcessarValor(linhas, colunas) + "";
+        }
+
+        private void btnRemoverValorMatriz1_Click(object sender, EventArgs e)
+        {
+            int linhas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
+            int colunas = Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0));
+
+            valor.Text = "0";
+            matriz1.ExcluirCelula(linhas, colunas);
+            matriz1.Exibir(ref dgvMatriz1);
+        }
+
+        private void btnSomarKMatriz1_Click(object sender, EventArgs e)
+        {
+            int colunas = Convert.ToInt32(Math.Round(nColuna.Value, 0));
+
+            matriz1.SomarK(colunas, Convert.ToDouble(nkMatriz1.Value));
+            matriz1.Exibir(ref dgvMatriz1);
+        }
+
         private void lMatriz1_Click(object sender, EventArgs e) //Desaloca a memoria da matriz 1
         {
             matriz1.DesalocarMemoria();
@@ -96,6 +119,29 @@ namespace MatrizEsparsa
             btnLerArquivoMatriz2.Visible = false;
             btnGerarMatriz2.Visible = false;
         }
+        private void btnRemoverValorMatriz2_Click(object sender, EventArgs e)
+        {
+            int linhas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
+            int colunas = Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0));
+
+            valor.Text = "0";
+            matriz2.ExcluirCelula(linhas, colunas);
+        }
+        private void btnAcessarValorMatriz2_Click(object sender, EventArgs e)
+        {
+            int linhas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
+            int colunas = Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0));
+
+            valor.Visible = true;
+            valor.Text = matriz2.AcessarValor(linhas, colunas) + "";
+        }
+        private void btnSomar_Click(object sender, EventArgs e)
+        {
+            int colunas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
+            matriz2.SomarK(colunas, Convert.ToDouble(nkMatriz2.Value));
+            matriz2.Exibir(ref dgvMatriz2);
+        }
+
         private void lMatriz2_Click(object sender, EventArgs e) //Desaloca a memoria da matriz 1
         {
             matriz2.DesalocarMemoria();
@@ -113,71 +159,6 @@ namespace MatrizEsparsa
         //----------------------------------------------------------------------------------------------------------------------------------
         //MatrizResultado
         //----------------------------------------------------------------------------------------------------------------------------------
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            int linhas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
-            int colunas = Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0));
-
-            valor.Visible = true;
-            valor.Text = matriz2.AcessarValor(linhas,colunas) + "";
-           
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            int linhas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
-            int colunas = Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0));
-
-            valor.Text ="0";
-            matriz2.ExcluirCelula(linhas, colunas);
-        }
-
-        private void btnSomar_Click(object sender, EventArgs e)
-        {
-            int colunas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
-            matriz2.SomarK(colunas, Convert.ToDouble(nkMatriz2.Value));
-            matriz2.Exibir(ref dgvMatriz2);
-        }
-
-        
-
-        
-
-
-        
-
-        
-
-        
-
-        private void btnAcessarValorMatriz1_Click(object sender, EventArgs e)
-        {
-            int linhas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
-            int colunas = Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0));
-
-            valor.Visible = true;
-            valor.Text = matriz1.AcessarValor(linhas, colunas) + "";
-        }
-
-        private void btnRemoverValorMatriz1_Click(object sender, EventArgs e)
-        {
-            int linhas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
-            int colunas = Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0));
-
-            valor.Text = "0";
-            matriz1.ExcluirCelula(linhas, colunas);
-            matriz1.Exibir(ref dgvMatriz1);
-        }
-
-        private void btnSomarKMatriz1_Click(object sender, EventArgs e)
-        {
-            int colunas = Convert.ToInt32(Math.Round(nColuna.Value, 0));
-
-            matriz1.SomarK(colunas, Convert.ToDouble(nkMatriz1.Value));
-            matriz1.Exibir(ref dgvMatriz1);
-        }
-
         private void btnSomarMatrizes_Click(object sender, EventArgs e)
         {
             matrizResultado = matriz1.SomarMatrizes(matriz1, matriz2);
@@ -189,37 +170,10 @@ namespace MatrizEsparsa
             matrizResultado = matriz1.MultiplicarMatrizes(matriz1, matriz2);
             matrizResultado.Exibir(ref dgvMatriz3);
         }
+
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
-        {
-
         }
     }
 }

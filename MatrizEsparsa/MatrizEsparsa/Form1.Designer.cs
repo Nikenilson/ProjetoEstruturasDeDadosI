@@ -97,7 +97,6 @@
             this.label2.Size = new System.Drawing.Size(808, 55);
             this.label2.TabIndex = 1;
             this.label2.Text = "◤◢◤◢◣◥◣ ◢◤◢◣◥◣◥◤◢◤◢◣◥◣◥";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label5
             // 
@@ -199,7 +198,6 @@
             this.label9.Size = new System.Drawing.Size(29, 25);
             this.label9.TabIndex = 14;
             this.label9.Text = "k:";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // button3
             // 
@@ -210,7 +208,7 @@
             this.button3.TabIndex = 12;
             this.button3.Text = "Remover valor";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.btnRemoverValorMatriz2_Click);
             // 
             // valor
             // 
@@ -231,7 +229,7 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "Acessar valor";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.button2.Click += new System.EventHandler(this.btnAcessarValorMatriz2_Click);
             // 
             // dgvMatriz2
             // 
@@ -252,7 +250,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
             // gBGerarMatriz
             // 
@@ -573,7 +570,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Matrizes Esparsas";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            
             this.gbOperacoes2.ResumeLayout(false);
             this.gbOperacoes2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nkMatriz2)).EndInit();
