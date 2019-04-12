@@ -83,6 +83,8 @@ namespace MatrizEsparsa
                 //Altera a visibilidade de outros elementos 
                 btnLerArquivoMatriz1.Enabled = false;
                 btnGerarMatriz1.Enabled = false;
+                lMatriz1.Enabled = true;
+                gbOperacoes1.Visible = true;
 
             }
         }
@@ -92,8 +94,8 @@ namespace MatrizEsparsa
             int linhas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
             int colunas = Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0));
 
-            lblValorMatriz2.Visible = true;
-            lblValorMatriz2.Text = matriz1.AcessarValor(linhas, colunas) + "";
+            lblValorMatriz1.Visible = true;
+            lblValorMatriz1.Text = matriz1.AcessarValor(linhas, colunas) + "";
         }
 
         private void btnRemoverValorMatriz1_Click(object sender, EventArgs e)
@@ -190,6 +192,8 @@ namespace MatrizEsparsa
                 //Altera a visibilidade de outros elementos 
                 btnLerArquivoMatriz2.Enabled = false;
                 btnGerarMatriz2.Enabled = false;
+                lMatriz2.Enabled = true;
+                gbOperacoes2.Visible = true;
             }
         }
         private void btnRemoverValorMatriz2_Click(object sender, EventArgs e)

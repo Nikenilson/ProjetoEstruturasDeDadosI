@@ -115,7 +115,7 @@ namespace MatrizEsparsa
                 throw new Exception("Linha e/ou coluna inválida(s)");
 
             if (ExisteCelula(linha, coluna))
-                return acima.Abaixo.Valor;
+                return esquerda.Direita.Valor;
 
             return 0; //Se nao existe, retorna o valor padrao, 0
         }
@@ -192,7 +192,6 @@ namespace MatrizEsparsa
 
         public void Exibir(ref DataGridView a) //Exibe a ListaCruzada em um DataGridView
         {
-
             a.Columns.Clear();
             a.Rows.Clear();
             for (int i = 1; i < this.linhas; i++)
