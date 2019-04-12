@@ -109,7 +109,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(595, 536);
+            this.label5.Location = new System.Drawing.Point(599, 553);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(822, 55);
             this.label5.TabIndex = 4;
@@ -131,7 +131,7 @@
             this.gbOperacoes2.Controls.Add(this.lblValorMatriz2);
             this.gbOperacoes2.Controls.Add(this.button2);
             this.gbOperacoes2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbOperacoes2.Location = new System.Drawing.Point(12, 387);
+            this.gbOperacoes2.Location = new System.Drawing.Point(12, 406);
             this.gbOperacoes2.Name = "gbOperacoes2";
             this.gbOperacoes2.Size = new System.Drawing.Size(450, 148);
             this.gbOperacoes2.TabIndex = 6;
@@ -435,7 +435,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(8, 536);
+            this.label3.Location = new System.Drawing.Point(12, 553);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(822, 55);
             this.label3.TabIndex = 2;
@@ -461,7 +461,7 @@
             this.gbOperacoes1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOperacoes1.Location = new System.Drawing.Point(12, 189);
             this.gbOperacoes1.Name = "gbOperacoes1";
-            this.gbOperacoes1.Size = new System.Drawing.Size(450, 192);
+            this.gbOperacoes1.Size = new System.Drawing.Size(450, 209);
             this.gbOperacoes1.TabIndex = 22;
             this.gbOperacoes1.TabStop = false;
             this.gbOperacoes1.Text = "Operações da Matriz 1";
@@ -633,7 +633,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.ClientSize = new System.Drawing.Size(1204, 573);
+            this.ClientSize = new System.Drawing.Size(1213, 590);
             this.Controls.Add(this.lMatrizResultado);
             this.Controls.Add(this.gbOperacoes1);
             this.Controls.Add(this.dgvMatriz3);

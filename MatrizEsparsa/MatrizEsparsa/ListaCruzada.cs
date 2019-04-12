@@ -34,8 +34,9 @@ namespace MatrizEsparsa
             Celula percorre = primeiroCabeca; // ponteiro usado para percorrer, inicia no primeiro valor da matriz
 
             Celula proximaLinha;   // representa a célula da proxima linha, após a variável "percorre"
+       
+            for (int i = 1; i <= linhas; i++)
 
-            for (int i = 1; i < linhas; i++)
             {
                 proximaLinha = new Celula(i, -1, 0); // "proximaLinha" é (re)instanciada como uma nova célula com a linha correspondente ao índice,
                                                      // coluna -1 e valor 0 (já que não existe valor específico a ser inserido)
@@ -58,7 +59,7 @@ namespace MatrizEsparsa
 
             Celula proximaColuna;   // representa a célula da proxima coluna, após a variável "percorre"
 
-            for (int i = 1; i < colunas; i++)
+            for (int i = 1; i <= colunas; i++)
             {
                 proximaColuna = new Celula(i, -1, 0); // "proximaLinha" é (re)instanciada como uma nova célula com a linha correspondente ao índice,
                                                       // coluna -1 e valor 0 (já que não existe valor específico a ser inserido)
@@ -87,24 +88,20 @@ namespace MatrizEsparsa
 
         public bool ExisteCelula(int linha, int coluna) //Procura e retorna uma Celula da Lista 
         {
-                atual = primeiroCabeca;
-                for (int i = 0; i < linha; i++) //Posiciona atual na linha desejada
-                {
-                    if (atual.Linha > linha)//Se a linha atual for maior que a desejada, a celula nao existe, retorna falso
-                        return false;
+            esquerda = primeiroCabeca;
+            acima = primeiroCabeca;
+            for (int l = 1; l <= linha; l++)
+                acima= acima.Abaixo;
+            for (int c = 1; c <= coluna; c++)
+                esquerda = esquerda.Direita;
+            while (esquerda.Direita.Coluna != -1 && esquerda.Direita.Coluna < coluna)
+                esquerda = esquerda.Direita;
+            while (acima.Abaixo.Linha != -1 && acima.Abaixo.Linha < linha)
+                acima = acima.Abaixo;
 
-                    acima = atual;
-                    atual = atual.Abaixo;
-                }
-                while (atual.Coluna <= coluna) //Percorre a linha ate chegar na coluna desejada 
-                {
-                    if (atual.Coluna == coluna)
-                        return true;
+            if (esquerda.Direita.Linha == linha && acima.Abaixo.Coluna == coluna)
+                return true;
 
-                    esquerda = atual;
-                    acima = acima.Direita;
-                    atual = atual.Direita;
-                }
             return false;
         }
 
@@ -114,25 +111,25 @@ namespace MatrizEsparsa
             if (linha < 0 || coluna < 0)    // se a linha ou coluna forem menor que 0, são inválidas, sendo assim se lança uma exceção
                 throw new Exception("Linha e/ou coluna inválida(s)");
 
-            if (ExisteCelula(linha, coluna)) //Se a celula existe, retorna ela
-                return atual.Valor;
+            if (ExisteCelula(linha, coluna))
+                return acima.Abaixo.Valor;
 
             return 0; //Se nao existe, retorna o valor padrao, 0
         }
 
         public void InserirCelula(int linha, int coluna, double valorNovo)
         {
-            if (ExisteCelula(linha, coluna)) //Se a celula ja existe, altera o valor dela
-                atual.Valor = valorNovo;
-            else 
+
+            if (ExisteCelula(linha, coluna))
+                acima.Abaixo.Valor = valorNovo;
+            else
             {
+                ExisteCelula(linha, coluna);
                 Celula celulaNova = new Celula(linha, coluna, valorNovo);
 
-                // if (esquerda.Direita.Valor != 0)
                 celulaNova.Direita = esquerda.Direita;
                 esquerda.Direita = celulaNova;
 
-                //  if (acima.Abaixo.Valor != 0)
                 celulaNova.Abaixo = acima.Abaixo;
                 acima.Abaixo = celulaNova;
 
@@ -192,11 +189,14 @@ namespace MatrizEsparsa
 
         public void Exibir(ref DataGridView a) //Exibe a ListaCruzada em um DataGridView
         {
-            for (int i = 0; i < this.linhas; i++) //Cria o cabeçalho
+
+            a.Columns.Clear();
+            a.Rows.Clear();
+            for (int i = 1; i < this.linhas; i++)
                 a.Columns.Add(i.ToString(), i.ToString());
 
             string[] linha = new string[colunas];
-            for (int i = 0; i < linhas; i++) //Adiciona linha por linha da Lista no DataGridView
+            for (int i = 1; i < linhas; i++)
             {
                 for (int e = 0; e < colunas; e++)
                     linha[e] = AcessarValor(i, e).ToString();
