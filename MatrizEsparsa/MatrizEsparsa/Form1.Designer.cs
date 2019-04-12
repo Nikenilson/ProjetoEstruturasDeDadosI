@@ -31,12 +31,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.gbOperacoes2 = new System.Windows.Forms.GroupBox();
+            this.txtValorMatriz2 = new System.Windows.Forms.TextBox();
+            this.txtValorkMatriz2 = new System.Windows.Forms.TextBox();
+            this.lblValor2 = new System.Windows.Forms.Label();
+            this.btnInserirValorMatriz2 = new System.Windows.Forms.Button();
+            this.lblk2 = new System.Windows.Forms.Label();
             this.lblColuna2 = new System.Windows.Forms.Label();
             this.nLinhaMatriz2 = new System.Windows.Forms.NumericUpDown();
             this.nColunaMatriz2 = new System.Windows.Forms.NumericUpDown();
             this.lblLinha2 = new System.Windows.Forms.Label();
             this.btnSomarKMatriz2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.lblValorMatriz2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.dgvMatriz2 = new System.Windows.Forms.DataGridView();
             this.dgvMatriz1 = new System.Windows.Forms.DataGridView();
@@ -56,6 +62,10 @@
             this.dgvMatriz3 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.gbOperacoes1 = new System.Windows.Forms.GroupBox();
+            this.txtValorkMatriz = new System.Windows.Forms.TextBox();
+            this.txtValorMatriz1 = new System.Windows.Forms.TextBox();
+            this.lblValor = new System.Windows.Forms.Label();
+            this.btnInserirValorMatriz1 = new System.Windows.Forms.Button();
             this.lblColuna1 = new System.Windows.Forms.Label();
             this.nLinha = new System.Windows.Forms.NumericUpDown();
             this.nColuna = new System.Windows.Forms.NumericUpDown();
@@ -67,16 +77,6 @@
             this.btnRemoverValorMatriz1 = new System.Windows.Forms.Button();
             this.lblValorMatriz1 = new System.Windows.Forms.Label();
             this.btnAcessarValorMatriz1 = new System.Windows.Forms.Button();
-            this.btnInserirValorMatriz1 = new System.Windows.Forms.Button();
-            this.lblValor = new System.Windows.Forms.Label();
-            this.txtValorMatriz1 = new System.Windows.Forms.TextBox();
-            this.txtValorkMatriz = new System.Windows.Forms.TextBox();
-            this.txtValorkMatriz2 = new System.Windows.Forms.TextBox();
-            this.lblk2 = new System.Windows.Forms.Label();
-            this.txtValorMatriz2 = new System.Windows.Forms.TextBox();
-            this.lblValor2 = new System.Windows.Forms.Label();
-            this.btnInserirValorMatriz2 = new System.Windows.Forms.Button();
-            this.lblValorMatriz2 = new System.Windows.Forms.Label();
             this.lMatrizResultado = new System.Windows.Forms.Button();
             this.gbOperacoes2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nLinhaMatriz2)).BeginInit();
@@ -99,7 +99,7 @@
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Location = new System.Drawing.Point(5, -21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(588, 55);
+            this.label2.Size = new System.Drawing.Size(808, 55);
             this.label2.TabIndex = 1;
             this.label2.Text = "◤◢◤◢◣◥◣ ◢◤◢◣◥◣◥◤◢◤◢◣◥◣◥";
             // 
@@ -111,7 +111,7 @@
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label5.Location = new System.Drawing.Point(595, 536);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(602, 55);
+            this.label5.Size = new System.Drawing.Size(822, 55);
             this.label5.TabIndex = 4;
             this.label5.Text = "◣◥◣◥◤◢◤ ◥◣◥◤◢◤ ◢◣◥◣◥◤◢◤◢";
             // 
@@ -138,6 +138,49 @@
             this.gbOperacoes2.TabStop = false;
             this.gbOperacoes2.Text = "Operações da Matriz 2";
             this.gbOperacoes2.Visible = false;
+            // 
+            // txtValorMatriz2
+            // 
+            this.txtValorMatriz2.Location = new System.Drawing.Point(73, 107);
+            this.txtValorMatriz2.Name = "txtValorMatriz2";
+            this.txtValorMatriz2.Size = new System.Drawing.Size(100, 31);
+            this.txtValorMatriz2.TabIndex = 28;
+            // 
+            // txtValorkMatriz2
+            // 
+            this.txtValorkMatriz2.Location = new System.Drawing.Point(333, 64);
+            this.txtValorkMatriz2.Name = "txtValorkMatriz2";
+            this.txtValorkMatriz2.Size = new System.Drawing.Size(100, 31);
+            this.txtValorkMatriz2.TabIndex = 27;
+            // 
+            // lblValor2
+            // 
+            this.lblValor2.AutoSize = true;
+            this.lblValor2.Location = new System.Drawing.Point(10, 110);
+            this.lblValor2.Name = "lblValor2";
+            this.lblValor2.Size = new System.Drawing.Size(68, 25);
+            this.lblValor2.TabIndex = 27;
+            this.lblValor2.Text = "Valor:";
+            // 
+            // btnInserirValorMatriz2
+            // 
+            this.btnInserirValorMatriz2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInserirValorMatriz2.Location = new System.Drawing.Point(179, 105);
+            this.btnInserirValorMatriz2.Name = "btnInserirValorMatriz2";
+            this.btnInserirValorMatriz2.Size = new System.Drawing.Size(124, 37);
+            this.btnInserirValorMatriz2.TabIndex = 26;
+            this.btnInserirValorMatriz2.Text = "Inserir Valor";
+            this.btnInserirValorMatriz2.UseVisualStyleBackColor = true;
+            this.btnInserirValorMatriz2.Click += new System.EventHandler(this.btnInserirValorMatriz2_Click);
+            // 
+            // lblk2
+            // 
+            this.lblk2.AutoSize = true;
+            this.lblk2.Location = new System.Drawing.Point(307, 67);
+            this.lblk2.Name = "lblk2";
+            this.lblk2.Size = new System.Drawing.Size(29, 25);
+            this.lblk2.TabIndex = 26;
+            this.lblk2.Text = "k:";
             // 
             // lblColuna2
             // 
@@ -202,6 +245,16 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.btnRemoverValorMatriz2_Click);
             // 
+            // lblValorMatriz2
+            // 
+            this.lblValorMatriz2.AutoSize = true;
+            this.lblValorMatriz2.Location = new System.Drawing.Point(323, 27);
+            this.lblValorMatriz2.Name = "lblValorMatriz2";
+            this.lblValorMatriz2.Size = new System.Drawing.Size(62, 25);
+            this.lblValorMatriz2.TabIndex = 11;
+            this.lblValorMatriz2.Text = "Valor";
+            this.lblValorMatriz2.Visible = false;
+            // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -255,24 +308,24 @@
             // 
             // lMatriz2
             // 
+            this.lMatriz2.Enabled = false;
             this.lMatriz2.Location = new System.Drawing.Point(328, 67);
             this.lMatriz2.Name = "lMatriz2";
             this.lMatriz2.Size = new System.Drawing.Size(116, 41);
             this.lMatriz2.TabIndex = 17;
             this.lMatriz2.Text = "Liberar 2";
             this.lMatriz2.UseVisualStyleBackColor = true;
-            this.lMatriz2.Visible = false;
             this.lMatriz2.Click += new System.EventHandler(this.lMatriz2_Click);
             // 
             // lMatriz1
             // 
+            this.lMatriz1.Enabled = false;
             this.lMatriz1.Location = new System.Drawing.Point(328, 19);
             this.lMatriz1.Name = "lMatriz1";
             this.lMatriz1.Size = new System.Drawing.Size(116, 42);
             this.lMatriz1.TabIndex = 16;
             this.lMatriz1.Text = "Liberar 1";
             this.lMatriz1.UseVisualStyleBackColor = true;
-            this.lMatriz1.Visible = false;
             this.lMatriz1.Click += new System.EventHandler(this.lMatriz1_Click);
             // 
             // btnLerArquivoMatriz2
@@ -364,7 +417,7 @@
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label4.Location = new System.Drawing.Point(514, -21);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(588, 55);
+            this.label4.Size = new System.Drawing.Size(808, 55);
             this.label4.TabIndex = 3;
             this.label4.Text = "◤◢◤◢◣◥◣ ◢◤◢◣◥◣◥◤◢◤◢◣◥◣◥";
             // 
@@ -384,7 +437,7 @@
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label3.Location = new System.Drawing.Point(8, 536);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(602, 55);
+            this.label3.Size = new System.Drawing.Size(822, 55);
             this.label3.TabIndex = 2;
             this.label3.Text = "◣◥◣◥◤◢◤ ◥◣◥◤◢◤ ◢◣◥◣◥◤◢◤◢";
             // 
@@ -413,6 +466,40 @@
             this.gbOperacoes1.TabStop = false;
             this.gbOperacoes1.Text = "Operações da Matriz 1";
             this.gbOperacoes1.Visible = false;
+            // 
+            // txtValorkMatriz
+            // 
+            this.txtValorkMatriz.Location = new System.Drawing.Point(333, 65);
+            this.txtValorkMatriz.Name = "txtValorkMatriz";
+            this.txtValorkMatriz.Size = new System.Drawing.Size(100, 31);
+            this.txtValorkMatriz.TabIndex = 25;
+            // 
+            // txtValorMatriz1
+            // 
+            this.txtValorMatriz1.Location = new System.Drawing.Point(73, 106);
+            this.txtValorMatriz1.Name = "txtValorMatriz1";
+            this.txtValorMatriz1.Size = new System.Drawing.Size(100, 31);
+            this.txtValorMatriz1.TabIndex = 24;
+            // 
+            // lblValor
+            // 
+            this.lblValor.AutoSize = true;
+            this.lblValor.Location = new System.Drawing.Point(10, 109);
+            this.lblValor.Name = "lblValor";
+            this.lblValor.Size = new System.Drawing.Size(68, 25);
+            this.lblValor.TabIndex = 23;
+            this.lblValor.Text = "Valor:";
+            // 
+            // btnInserirValorMatriz1
+            // 
+            this.btnInserirValorMatriz1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInserirValorMatriz1.Location = new System.Drawing.Point(179, 104);
+            this.btnInserirValorMatriz1.Name = "btnInserirValorMatriz1";
+            this.btnInserirValorMatriz1.Size = new System.Drawing.Size(124, 37);
+            this.btnInserirValorMatriz1.TabIndex = 22;
+            this.btnInserirValorMatriz1.Text = "Inserir Valor";
+            this.btnInserirValorMatriz1.UseVisualStyleBackColor = true;
+            this.btnInserirValorMatriz1.Click += new System.EventHandler(this.btnInserirValorMatriz1_Click);
             // 
             // lblColuna1
             // 
@@ -528,93 +615,6 @@
             this.btnAcessarValorMatriz1.Text = "Acessar Valor";
             this.btnAcessarValorMatriz1.UseVisualStyleBackColor = true;
             this.btnAcessarValorMatriz1.Click += new System.EventHandler(this.btnAcessarValorMatriz1_Click);
-            // 
-            // btnInserirValorMatriz1
-            // 
-            this.btnInserirValorMatriz1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInserirValorMatriz1.Location = new System.Drawing.Point(179, 104);
-            this.btnInserirValorMatriz1.Name = "btnInserirValorMatriz1";
-            this.btnInserirValorMatriz1.Size = new System.Drawing.Size(124, 37);
-            this.btnInserirValorMatriz1.TabIndex = 22;
-            this.btnInserirValorMatriz1.Text = "Inserir Valor";
-            this.btnInserirValorMatriz1.UseVisualStyleBackColor = true;
-            this.btnInserirValorMatriz1.Click += new System.EventHandler(this.btnInserirValorMatriz1_Click);
-            // 
-            // lblValor
-            // 
-            this.lblValor.AutoSize = true;
-            this.lblValor.Location = new System.Drawing.Point(10, 109);
-            this.lblValor.Name = "lblValor";
-            this.lblValor.Size = new System.Drawing.Size(68, 25);
-            this.lblValor.TabIndex = 23;
-            this.lblValor.Text = "Valor:";
-            // 
-            // txtValorMatriz1
-            // 
-            this.txtValorMatriz1.Location = new System.Drawing.Point(73, 106);
-            this.txtValorMatriz1.Name = "txtValorMatriz1";
-            this.txtValorMatriz1.Size = new System.Drawing.Size(100, 31);
-            this.txtValorMatriz1.TabIndex = 24;
-            // 
-            // txtValorkMatriz
-            // 
-            this.txtValorkMatriz.Location = new System.Drawing.Point(333, 65);
-            this.txtValorkMatriz.Name = "txtValorkMatriz";
-            this.txtValorkMatriz.Size = new System.Drawing.Size(100, 31);
-            this.txtValorkMatriz.TabIndex = 25;
-            // 
-            // txtValorkMatriz2
-            // 
-            this.txtValorkMatriz2.Location = new System.Drawing.Point(333, 64);
-            this.txtValorkMatriz2.Name = "txtValorkMatriz2";
-            this.txtValorkMatriz2.Size = new System.Drawing.Size(100, 31);
-            this.txtValorkMatriz2.TabIndex = 27;
-            // 
-            // lblk2
-            // 
-            this.lblk2.AutoSize = true;
-            this.lblk2.Location = new System.Drawing.Point(307, 67);
-            this.lblk2.Name = "lblk2";
-            this.lblk2.Size = new System.Drawing.Size(29, 25);
-            this.lblk2.TabIndex = 26;
-            this.lblk2.Text = "k:";
-            // 
-            // txtValorMatriz2
-            // 
-            this.txtValorMatriz2.Location = new System.Drawing.Point(73, 107);
-            this.txtValorMatriz2.Name = "txtValorMatriz2";
-            this.txtValorMatriz2.Size = new System.Drawing.Size(100, 31);
-            this.txtValorMatriz2.TabIndex = 28;
-            // 
-            // lblValor2
-            // 
-            this.lblValor2.AutoSize = true;
-            this.lblValor2.Location = new System.Drawing.Point(10, 110);
-            this.lblValor2.Name = "lblValor2";
-            this.lblValor2.Size = new System.Drawing.Size(68, 25);
-            this.lblValor2.TabIndex = 27;
-            this.lblValor2.Text = "Valor:";
-            // 
-            // btnInserirValorMatriz2
-            // 
-            this.btnInserirValorMatriz2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInserirValorMatriz2.Location = new System.Drawing.Point(179, 105);
-            this.btnInserirValorMatriz2.Name = "btnInserirValorMatriz2";
-            this.btnInserirValorMatriz2.Size = new System.Drawing.Size(124, 37);
-            this.btnInserirValorMatriz2.TabIndex = 26;
-            this.btnInserirValorMatriz2.Text = "Inserir Valor";
-            this.btnInserirValorMatriz2.UseVisualStyleBackColor = true;
-            this.btnInserirValorMatriz2.Click += new System.EventHandler(this.btnInserirValorMatriz2_Click);
-            // 
-            // lblValorMatriz2
-            // 
-            this.lblValorMatriz2.AutoSize = true;
-            this.lblValorMatriz2.Location = new System.Drawing.Point(323, 27);
-            this.lblValorMatriz2.Name = "lblValorMatriz2";
-            this.lblValorMatriz2.Size = new System.Drawing.Size(62, 25);
-            this.lblValorMatriz2.TabIndex = 11;
-            this.lblValorMatriz2.Text = "Valor";
-            this.lblValorMatriz2.Visible = false;
             // 
             // lMatrizResultado
             // 

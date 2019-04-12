@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.IO;
 
 ///
 /// Samuel Gomes de Lima Dias - 18169
@@ -21,13 +22,11 @@ namespace MatrizEsparsa
         {
             InitializeComponent();
         }
-
         //----------------------------------------------------------------------------------------------------------------------------------
         //Matriz 1
         //----------------------------------------------------------------------------------------------------------------------------------
         private void btnGerar_Click(object sender, EventArgs e) //Gera a Matriz 1 por meio do "teclado"
         {
-            m1Existe = true;
             int linhas = Convert.ToInt32(Math.Round(nLinhas.Value, 0));
             int colunas = Convert.ToInt32(Math.Round(nColunas.Value, 0));
             matriz1 = new ListaCruzada(linhas, colunas);
@@ -38,27 +37,53 @@ namespace MatrizEsparsa
                     cell.Value = 0;
 
             //Altera a visibilidade de outros elementos 
+            m1Existe = true;
             if (m2Existe)
             {
                 btnSomarMatrizes.Enabled = true;
                 btnMultiplicarMatrizes.Enabled = true;
             }
-            btnGerarMatriz1.Visible = false;
-            lMatriz1.Visible = true;
+            btnGerarMatriz1.Enabled = false;
+            lMatriz1.Enabled = true;
             gbOperacoes1.Visible = true;
         }
-
         private void btnLerArquivo_Click(object sender, EventArgs e) //Gera a Matriz 1 por meio da leitura de um arquivo
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                matriz1 = new ListaCruzada();
-                matriz1.LerArquivo(openFileDialog1.FileName);
+                var arquivo = new StreamReader(openFileDialog1.FileName);
+
+                int linhasArq = int.Parse(arquivo.ReadLine());
+                int colunasArq = int.Parse(arquivo.ReadLine());
+
+                matriz1 = new ListaCruzada(linhasArq, colunasArq);
+
+                string linha = arquivo.ReadLine();
+                linha = linha.Replace('(', ' ');
+                linha = linha.Replace(')', ' ');
+                linha = linha.Replace('{', ' ');
+                linha = linha.Replace('}', ' ');
+                linha.Trim();
+                string[] matrizString = linha.Split(',');
+                for (int i = 0; i < matrizString.Length; i++)
+                {
+                    string whatsInside = matrizString[i];
+                    int linhaCelula = int.Parse(matrizString[i]);
+                    i++;
+                    int colunaCelula = int.Parse(matrizString[i]);
+                    i++;
+                    double valor = double.Parse(matrizString[i]);
+                    i++;
+
+                    matriz1.InserirCelula(linhaCelula, colunaCelula, valor);
+                }
+                arquivo.Close();
                 matriz1.Exibir(ref dgvMatriz1);
 
                 //Altera a visibilidade de outros elementos 
-                btnLerArquivoMatriz1.Visible = false;
-                btnGerarMatriz1.Visible = false;
+                btnLerArquivoMatriz1.Enabled = false;
+                btnGerarMatriz1.Enabled = false;
+
             }
         }
 
@@ -101,10 +126,10 @@ namespace MatrizEsparsa
             dgvMatriz1.ColumnCount = 1;
 
             //Altera a visibilidade de outros elementos
-            btnLerArquivoMatriz1.Visible = true;
-            btnGerarMatriz1.Visible = true;
+            btnLerArquivoMatriz1.Enabled = true;
+            btnGerarMatriz1.Enabled = true;
             gbOperacoes1.Visible = false;
-            lMatriz1.Visible = false;
+            lMatriz1.Enabled = false;
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------
@@ -126,21 +151,45 @@ namespace MatrizEsparsa
                 btnSomarMatrizes.Enabled = true;
                 btnMultiplicarMatrizes.Enabled = true;
             }
-            lMatriz2.Visible = true;
+            lMatriz2.Enabled = true;
             gbOperacoes2.Visible = true;
-            btnGerarMatriz2.Visible = false;
+            btnGerarMatriz2.Enabled = false;
         }
         private void btnLerArquivoMatriz2_Click(object sender, EventArgs e) //Gera a matriz 2 por meio da leitura de um arquivo
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                matriz2 = new ListaCruzada();
-                matriz2.LerArquivo(openFileDialog1.FileName);
+                var arquivo = new StreamReader(openFileDialog1.FileName);
+
+                int linhasArq = int.Parse(arquivo.ReadLine());
+                int colunasArq = int.Parse(arquivo.ReadLine());
+
+                matriz2 = new ListaCruzada(linhasArq, colunasArq);
+
+                string linha = arquivo.ReadLine();
+                linha = linha.Replace('(', ' ');
+                linha = linha.Replace(')', ' ');
+                linha = linha.Replace('{', ' ');
+                linha = linha.Replace('}', ' ');
+                linha.Trim();
+                string[] matrizString = linha.Split(',');
+                for (int i = 0; i < matrizString.Length;)
+                {
+                    int linhaCelula = int.Parse(matrizString[i]);
+                    i++;
+                    int colunaCelula = int.Parse(matrizString[i]);
+                    i++;
+                    double valor = double.Parse(matrizString[i]);
+                    i++;
+
+                    matriz2.InserirCelula(linhaCelula, colunaCelula, valor);
+                }
+                arquivo.Close();
                 matriz2.Exibir(ref dgvMatriz2);
 
                 //Altera a visibilidade de outros elementos 
-                btnLerArquivoMatriz2.Visible = false;
-                btnGerarMatriz2.Visible = false;
+                btnLerArquivoMatriz2.Enabled = false;
+                btnGerarMatriz2.Enabled = false;
             }
         }
         private void btnRemoverValorMatriz2_Click(object sender, EventArgs e)
@@ -172,16 +221,17 @@ namespace MatrizEsparsa
         }
         private void lMatriz2_Click(object sender, EventArgs e) //Desaloca a memoria da matriz 2
         {
-            m2Existe = false;
             matriz2.DesalocarMemoria();
+
             dgvMatriz2.RowCount = 1;
             dgvMatriz2.ColumnCount = 1;
 
             //Altera a visibilidade de outros elementos 
-            btnLerArquivoMatriz2.Visible = true;
-            btnGerarMatriz2.Visible = true;
+            m2Existe = false;
+            btnLerArquivoMatriz2.Enabled = true;
+            btnGerarMatriz2.Enabled = true;
             gbOperacoes2.Visible = false;
-            lMatriz2.Visible = false;
+            lMatriz2.Enabled = false;
         }
 
         //----------------------------------------------------------------------------------------------------------------------------------
@@ -199,11 +249,6 @@ namespace MatrizEsparsa
             matrizResultado = matriz1.MultiplicarMatrizes(matriz1, matriz2);
             matrizResultado.Exibir(ref dgvMatriz3);
             lMatrizResultado.Enabled = true;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         private void lMatrizResultado_Click(object sender, EventArgs e)
