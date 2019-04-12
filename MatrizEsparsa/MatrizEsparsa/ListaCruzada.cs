@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 
-///
-/// Samuel Gomes de Lima Dias - 18169
-/// Guilherme Salim de Barros - 18188
-///
+///======================================
+/// Samuel Gomes de Lima Dias - 18169   =
+/// Guilherme Salim de Barros - 18188   =
+///======================================
 
 namespace MatrizEsparsa
 {
@@ -35,7 +35,7 @@ namespace MatrizEsparsa
 
             Celula proximaLinha;   // representa a célula da proxima linha, após a variável "percorre"
        
-            for (int i = 1; i <= linhas; i++)
+            for (int i = 0; i < linhas; i++)
 
             {
                 proximaLinha = new Celula(i, -1, 0); // "proximaLinha" é (re)instanciada como uma nova célula com a linha correspondente ao índice,
@@ -59,33 +59,28 @@ namespace MatrizEsparsa
 
             Celula proximaColuna;   // representa a célula da proxima coluna, após a variável "percorre"
 
-            for (int i = 1; i <= colunas; i++)
+            for (int i = 0; i < colunas; i++)
             {
-                proximaColuna = new Celula(i, -1, 0); // "proximaLinha" é (re)instanciada como uma nova célula com a linha correspondente ao índice,
+                proximaColuna = new Celula(-1, i, 0); // "proximaLinha" é (re)instanciada como uma nova célula com a linha correspondente ao índice,
                                                       // coluna -1 e valor 0 (já que não existe valor específico a ser inserido)
+  
+                percorre.Direita = proximaColuna;        // a célula a baixo de "percorre" é ele mesmo
 
-                if (i != 0)                              // caso o índice não seja 0, e "percorre", consequentemente, não seja o primeiro valor da lista,  
-                    percorre.Abaixo = percorre;        // a célula a baixo de "percorre" é ele mesmo
 
-
-                percorre.Direita = proximaColuna;       // já que, por enquanto, só há um elemento por coluna (com execão da -1), 
-                                                        // a célula abaixo do "percorre" recebe "proximaLinha", ligando-os
+                percorre.Abaixo = percorre;       // já que, por enquanto, só há um elemento por coluna (com execão da -1), 
+                                                  // a célula abaixo do "percorre" recebe "proximaLinha", ligando-os
 
                 percorre = percorre.Direita;     // "percorre" avança para o elemento a direita
             }
 
-
             percorre.Direita = primeiroCabeca;   // como chegamos no último elemento em relação às colunas, o a direita de percorre  é o primeiro 
-            percorre.Abaixo = percorre;  // já que, por enquanto, só há um elemento por linha, a célula a direita de "percorre" é ele mesmo
+            percorre.Abaixo = percorre;  // já que, por enquanto, só há um elemento por linha, a célula a abaixo de "percorre" é ele mesmo
 
         }
-
         public bool EstaVazia
         {
             get => acima == null || esquerda ==null;
         }
-
-
         public bool ExisteCelula(int linha, int coluna) //Procura e retorna uma Celula da Lista 
         {
             esquerda = primeiroCabeca;
@@ -105,13 +100,12 @@ namespace MatrizEsparsa
             return false;
         }
 
-
         public double AcessarValor(int linha, int coluna)
         {
-            if (linha < 0 || coluna < 0)    // se a linha ou coluna forem menor que 0, são inválidas, sendo assim se lança uma exceção
+            if (linha < 0 || coluna < 0)    //Se a linha ou coluna forem menor que 0, são inválidas, sendo assim se lança uma exceção
                 throw new Exception("Linha e/ou coluna inválida(s)");
 
-            if (ExisteCelula(linha, coluna))
+            if (ExisteCelula(linha, coluna)) //Se a celula existe, retorna o seu valor 
                 return esquerda.Direita.Valor;
 
             return 0; //Se nao existe, retorna o valor padrao, 0
@@ -119,14 +113,13 @@ namespace MatrizEsparsa
 
         public void InserirCelula(int linha, int coluna, double valorNovo)
         {
-
-            if (ExisteCelula(linha, coluna))
+            if (ExisteCelula(linha, coluna)) //Se ja existe uma celula nessa possição, "altera" o valor antigo
                 acima.Abaixo.Valor = valorNovo;
             else
             {
-                ExisteCelula(linha, coluna);
                 Celula celulaNova = new Celula(linha, coluna, valorNovo);
 
+                //Inclui a celula no meio das linhas e colunas da Lista, no lugar desejado
                 celulaNova.Direita = esquerda.Direita;
                 esquerda.Direita = celulaNova;
 
@@ -187,21 +180,29 @@ namespace MatrizEsparsa
             primeiroCabeca = null;
         }
 
-        public void Exibir(ref DataGridView a) //Exibe a ListaCruzada em um DataGridView
+        public void Exibir(ref DataGridView dgv) //Exibe a ListaCruzada em um DataGridView
         {
-            a.Columns.Clear();
-            a.Rows.Clear();
-            for (int i = 1; i < this.linhas; i++)
-                a.Columns.Add(i.ToString(), i.ToString());
+            //Deixa o gridView do tamanho da ListaCruzada 
+            dgv.RowCount = linhas;
+            dgv.ColumnCount = colunas;
 
-            string[] linha = new string[colunas];
-            for (int i = 1; i < linhas; i++)
-            {
-                for (int e = 0; e < colunas; e++)
-                    linha[e] = AcessarValor(i, e).ToString();
-                a.Rows.Add(linha[i]);
+            //Preenche o gridView com zeros para representar as posições vazias
+            foreach (DataGridViewRow row in dgv.Rows)
+                foreach (DataGridViewCell cell in row.Cells)
+                    cell.Value = 0;
+
+            //Percorre a ListaCruzada para preencher o gridView com os valores armazenados
+            atual = primeiroCabeca.Abaixo.Direita;
+            atual.Valor = atual.Valor;
+            while(atual.Linha != -1)
+            {   
+                while (atual.Coluna != -1)
+                {
+                    dgv.Rows[atual.Linha].Cells[atual.Coluna].Value = atual.Valor;
+                    atual = atual.Direita;       
+                }
+                atual = atual.Direita.Abaixo;
             }
-
         }
 
         
@@ -237,10 +238,7 @@ namespace MatrizEsparsa
                     // resultado inserirá uma nova célula com valor igual a resultado
                     listaResultado.InserirCelula(iLinha1, iColuna2, resultado);
                 }
-                
-
             }
-
             return listaResultado;
         }
 
@@ -251,36 +249,14 @@ namespace MatrizEsparsa
 
             ListaCruzada ret = new ListaCruzada();
 
+            //Percorre as duas matrizes, somando os valores e colocando os resultados em uma ListaCruzada a ser retornada 
             for (int i = 0; i < lista1.linhas; i++)
                 for (int e = 0; e < lista1.colunas; e++)
                     ret.InserirCelula(i, e, lista1.AcessarValor(i, e) + lista2.AcessarValor(i, e));
-  
+            //Retorna a Matriz Resultante da soma
             return ret;
         }
  
     }
 }
-///Feito
-///
-///• Criar a estrutura básica da matriz esparsa com dimensão M x N 
-///• Retornar o valor de uma posição (l, c) da matriz 
-///• Inserir um novo elemento em uma posição (l, c) da matriz
-///• Remover o elemento (l,c) da matriz
-///• Somar a constante K a todos os elementos da coluna c da matriz 
-///• Liberar todas as posições alocadas da matriz, incluindo sua estrutura básica
-///• Ler um arquivo texto com as coordenadas e os valores não nulos, armazenando-os na matriz 
-/// • Exibir a matriz na tela, em um gridView
-/// • Multiplicar duas matrizes esparsas, cada uma representada em uma estrutura própria e ambas exibidas em seu próprio gridView. 
-///O resultado deve gerar uma nova estrutura de matriz esparsa e exibido em um gridview próprio
-///• Somar duas matrizes esparsas, cada uma representada em uma estrutura própria e ambas exibidas em seu próprio gridView.
-///O resultado deve gerar uma nova estrutura de matriz esparsa e exibido em um gridview próprio
-/// Feito, mas nao testado
-/// 
-/// Falta 
-/// 
-/// 
-///
-///Tambem tomar cuidado com 
-///
-/// •quando um elemento da matriz deixar de ser nulo, há inserção na estrutura 
-/// •quando um elemento da matriz se torna nulo, há sua remoção da estrutura.
+

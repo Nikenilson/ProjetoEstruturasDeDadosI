@@ -13,10 +13,12 @@ namespace MatrizEsparsa
     public partial class Form1 : Form
     {
         ListaCruzada matriz1;
-        bool m1Existe = false;
         ListaCruzada matriz2;
-        bool m2Existe = false;
         ListaCruzada matrizResultado;
+
+        //Variaveis auxiliares para determinar quando alguns elementos devem ou não estar visiveis
+        bool m1Existe = false;
+        bool m2Existe = false;
 
         public Form1()
         {
@@ -27,9 +29,12 @@ namespace MatrizEsparsa
         //----------------------------------------------------------------------------------------------------------------------------------
         private void btnGerar_Click(object sender, EventArgs e) //Gera a Matriz 1 por meio do "teclado"
         {
+            //Pega as linhas e colunas para criar a matriz
             int linhas = Convert.ToInt32(Math.Round(nLinhas.Value, 0));
             int colunas = Convert.ToInt32(Math.Round(nColunas.Value, 0));
             matriz1 = new ListaCruzada(linhas, colunas);
+            
+            //Ajusta o tamanho da matriz e preenche ela com zeros, pois como ela acabou de ser criada, ainda está vazia
             dgvMatriz1.RowCount = linhas;
             dgvMatriz1.ColumnCount = colunas;
             foreach (DataGridViewRow row in dgvMatriz1.Rows)
@@ -53,11 +58,14 @@ namespace MatrizEsparsa
             {
                 var arquivo = new StreamReader(openFileDialog1.FileName);
 
+                //Lê as linhas e colunas do arquivo
                 int linhasArq = int.Parse(arquivo.ReadLine());
                 int colunasArq = int.Parse(arquivo.ReadLine());
 
+                //Cria a matriz com as linhas e colunas desejadas
                 matriz1 = new ListaCruzada(linhasArq, colunasArq);
 
+                //Trata o arquivo lido e insere os valores na matriz em suas respectivas linhas e colunas
                 string linha = arquivo.ReadLine();
                 linha = linha.Replace('(', ' ');
                 linha = linha.Replace(')', ' ');
@@ -65,9 +73,8 @@ namespace MatrizEsparsa
                 linha = linha.Replace('}', ' ');
                 linha.Trim();
                 string[] matrizString = linha.Split(',');
-                for (int i = 0; i < matrizString.Length; i++)
+                for (int i = 0; i < matrizString.Length;)
                 {
-                    string whatsInside = matrizString[i];
                     int linhaCelula = int.Parse(matrizString[i]);
                     i++;
                     int colunaCelula = int.Parse(matrizString[i]);
@@ -91,18 +98,22 @@ namespace MatrizEsparsa
 
         private void btnAcessarValorMatriz1_Click(object sender, EventArgs e)
         {
-            int linhas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
-            int colunas = Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0));
+            //Pega a linhas e coluna a ser acessada
+            int linha = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
+            int coluna = Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0));
 
+            //Acessa o valor e armazena ele em um label para o usuário 
             lblValorMatriz1.Visible = true;
-            lblValorMatriz1.Text = matriz1.AcessarValor(linhas, colunas) + "";
+            lblValorMatriz1.Text = matriz1.AcessarValor(linha, coluna) + "";
         }
 
         private void btnRemoverValorMatriz1_Click(object sender, EventArgs e)
         {
+            //Pega a linhas e coluna a ser removida
             int linhas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
             int colunas = Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0));
 
+            //Remove o valor e re-exibe a matriz no DataGridView
             lblValorMatriz2.Text = "0";
             matriz1.ExcluirCelula(linhas, colunas);
             matriz1.Exibir(ref dgvMatriz1);
@@ -110,24 +121,29 @@ namespace MatrizEsparsa
 
         private void btnSomarKMatriz1_Click(object sender, EventArgs e)
         {
+            //Pega a coluna em que a constante será somada
             int colunas = Convert.ToInt32(Math.Round(nColuna.Value, 0));
 
+            //Soma a constante e re-exibe a matriz no DataGridView
             matriz1.SomarK(colunas, Convert.ToDouble(txtValorkMatriz.Text));
             matriz1.Exibir(ref dgvMatriz1);
         }
         private void btnInserirValorMatriz1_Click(object sender, EventArgs e)
         {
+            //Insere o valor na linha e coluna desejada e re-exibe a matriz no DataGridView
             matriz1.InserirCelula(Convert.ToInt32(Math.Round(nLinha.Value, 0)), Convert.ToInt32(Math.Round(nColuna.Value, 0)), Convert.ToDouble(txtValorMatriz1.Text));
             matriz1.Exibir(ref dgvMatriz1);
         }
         private void lMatriz1_Click(object sender, EventArgs e) //Desaloca a memoria da matriz 1
         {
-            m1Existe = false;
             matriz1.DesalocarMemoria();
+
+            //"Limpa" o DataGridView
             dgvMatriz1.RowCount = 1;
             dgvMatriz1.ColumnCount = 1;
 
             //Altera a visibilidade de outros elementos
+            m1Existe = false;
             btnLerArquivoMatriz1.Enabled = true;
             btnGerarMatriz1.Enabled = true;
             gbOperacoes1.Visible = false;
