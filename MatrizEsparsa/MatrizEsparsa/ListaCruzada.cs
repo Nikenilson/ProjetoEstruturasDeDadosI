@@ -86,18 +86,22 @@ namespace MatrizEsparsa
         }
 
 
-        public bool ExisteCelula(int linha, int coluna) //Procura e retorna uma Celula da Lista 
+        public bool ExisteCelula(int linha, int coluna) //Procura uma célula da lista e retorna verdadeiro ou falso vaso ache ou não
         {
-            esquerda = primeiroCabeca;
-            acima = primeiroCabeca;
-            for (int l = 1; l <= linha; l++)
-                acima= acima.Abaixo;
-            for (int c = 1; c <= coluna; c++)
-                esquerda = esquerda.Direita;
-            while (esquerda.Direita.Coluna != -1 && esquerda.Direita.Coluna < coluna)
-                esquerda = esquerda.Direita;
-            while (acima.Abaixo.Linha != -1 && acima.Abaixo.Linha < linha)
+            esquerda = primeiroCabeca;  // inicializamos esquerda com a "cabeça" da matriz
+            acima = primeiroCabeca;     // inicializamos direita também com a "cabeça" da matriz
+
+            for (int l = 1; l <= linha; l++)    // percorremos todas as linhas "cabeça" da matriz
                 acima = acima.Abaixo;
+
+            for (int c = 1; c <= coluna; c++)   // percorremos todas as colunas "cabeça" da matriz
+                esquerda = esquerda.Direita;
+
+            while (esquerda.Direita.Coluna != -1 && esquerda.Direita.Coluna < coluna)     // enquanto a coluna do à direita da célula "esquerda" for diferente de -1, ou seja,
+                esquerda = esquerda.Direita;                                             // não for uma coluna "cabeça" e for menor que a coluna buscada, "esquerda" recebera a célula à direita
+
+            while (acima.Abaixo.Linha != -1 && acima.Abaixo.Linha < linha)  // enquanto a linha do à direita da célula "acima" for diferente de -1, ou seja,
+                acima = acima.Abaixo;                               // não for uma linha "cabeça" e for menor que a coluna buscada, "acima" recebera a célula abaixo
 
             if (esquerda.Direita.Linha == linha && acima.Abaixo.Coluna == coluna)
                 if (esquerda.Direita.Valor == acima.Abaixo.Valor) 
