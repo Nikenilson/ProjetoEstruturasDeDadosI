@@ -100,7 +100,10 @@ namespace MatrizEsparsa
                 acima = acima.Abaixo;
 
             if (esquerda.Direita.Linha == linha && acima.Abaixo.Coluna == coluna)
-                return true;
+                if (esquerda.Direita.Valor == acima.Abaixo.Valor) ;
+                    return true;
+
+            
 
             return false;
         }
