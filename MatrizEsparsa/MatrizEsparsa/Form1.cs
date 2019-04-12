@@ -155,15 +155,18 @@ namespace MatrizEsparsa
         //----------------------------------------------------------------------------------------------------------------------------------
         private void btnGerarMatriz2_Click(object sender, EventArgs e) //Gera a matriz 2 por meio do "teclado"
         {
-            m2Existe = true;
+            //Pega as linhas e colunas para criar a matriz
             int linhas = Convert.ToInt32(Math.Round(nLinhas.Value, 0));
             int colunas = Convert.ToInt32(Math.Round(nColunas.Value, 0));
             matriz2 = new ListaCruzada(linhas, colunas);
+
+            //Preenche a matriz com zeros
             foreach (DataGridViewRow row in dgvMatriz1.Rows)
                 foreach (DataGridViewCell cell in row.Cells)
                     cell.Value = 0;
 
             //Altera a visibilidade de outros elementos 
+            m2Existe = true;
             if (m1Existe)
             {
                 btnSomarMatrizes.Enabled = true;
@@ -179,11 +182,12 @@ namespace MatrizEsparsa
             {
                 var arquivo = new StreamReader(openFileDialog1.FileName);
 
+                //Lê as linhas e coluna e gera a matriz
                 int linhasArq = int.Parse(arquivo.ReadLine());
                 int colunasArq = int.Parse(arquivo.ReadLine());
-
                 matriz2 = new ListaCruzada(linhasArq, colunasArq);
 
+                //Trata o arquivo lido e insere os valores na matriz em suas respectivas linhas e colunas
                 string linha = arquivo.ReadLine();
                 linha = linha.Replace('(', ' ');
                 linha = linha.Replace(')', ' ');
@@ -214,33 +218,42 @@ namespace MatrizEsparsa
         }
         private void btnRemoverValorMatriz2_Click(object sender, EventArgs e)
         {
+            //Pega a linhas e coluna a ser removida
             int linhas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
             int colunas = Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0));
 
+            //Remove o valor e re-exibe a matriz no DataGridView
             lblValorMatriz2.Text = "0";
             matriz2.ExcluirCelula(linhas, colunas);
         }
         private void btnAcessarValorMatriz2_Click(object sender, EventArgs e)
         {
+            //Pega a linhas e coluna a ser acessada
             int linhas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
             int colunas = Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0));
 
+            //Acessa o valor e mostra em um label para o usuário
             lblValorMatriz2.Visible = true;
             lblValorMatriz2.Text = matriz2.AcessarValor(linhas, colunas) + "";
         }
         private void btnSomar_Click(object sender, EventArgs e)
         {
+            //Pega a coluna em que a constante de ser somada
             int colunas = Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0));
+
+            //Soma o valor e re-exibe a matriz no DataGridView
             matriz2.SomarK(colunas, Convert.ToDouble(txtValorkMatriz2.Text));
             matriz2.Exibir(ref dgvMatriz2);
         }
         private void btnInserirValorMatriz2_Click(object sender, EventArgs e)
         {
+            //Insere o valor na matriz
             matriz2.InserirCelula(Convert.ToInt32(Math.Round(nLinhaMatriz2.Value, 0)), Convert.ToInt32(Math.Round(nColunaMatriz2.Value, 0)), Convert.ToDouble(txtValorMatriz2.Text));
             matriz2.Exibir(ref dgvMatriz2);
         }
         private void lMatriz2_Click(object sender, EventArgs e) //Desaloca a memoria da matriz 2
         {
+            //Desaloca a matriz
             matriz2.DesalocarMemoria();
 
             dgvMatriz2.RowCount = 1;
@@ -259,6 +272,7 @@ namespace MatrizEsparsa
         //----------------------------------------------------------------------------------------------------------------------------------
         private void btnSomarMatrizes_Click(object sender, EventArgs e)
         {
+            //Soma a Matriz1 e Matriz2
             matrizResultado = matriz1.SomarMatrizes(matriz1, matriz2);
             matrizResultado.Exibir(ref dgvMatriz3);
             lMatrizResultado.Enabled = true;
@@ -266,6 +280,7 @@ namespace MatrizEsparsa
 
         private void btnMultiplicarMatrizes_Click(object sender, EventArgs e)
         {
+            //Multiplica a Matriz1 e Matriz2
             matrizResultado = matriz1.MultiplicarMatrizes(matriz1, matriz2);
             matrizResultado.Exibir(ref dgvMatriz3);
             lMatrizResultado.Enabled = true;
@@ -273,6 +288,7 @@ namespace MatrizEsparsa
 
         private void lMatrizResultado_Click(object sender, EventArgs e)
         {
+            //Libera a matriz Resultado
             matrizResultado.DesalocarMemoria();
             dgvMatriz3.RowCount = 0;
             dgvMatriz3.ColumnCount = 0;
